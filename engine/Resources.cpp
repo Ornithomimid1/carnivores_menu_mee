@@ -1985,19 +1985,19 @@ void ReadDescFromStream(char fname[128]) {
 	PrintLog("Reading Map Description File: ");
 	PrintLog(fname);
 	PrintLog("\n");
-	FILE *streamb;
-	char line[256];
-	int i;
-    
-	streamb = fopen(fname, "r");
-	if (!streamb) {
-		PrintLog("Could Not Read map txt desc\n");
-		return;
+
+	wsprintf(logt, fname);
+	hfile = CreateFile(logt, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	if (hfile != INVALID_HANDLE_VALUE) {
+		ReadFile(hfile, MapFile[TotalM].desc, 300, &l, NULL);
+		CloseHandle(hfile);
+	}
+	else {
+		PrintLog("Failed to load area txt from ");
+		PrintLog(logt);
+		PrintLog("\n");
 	}
 
-	fgets( MapFile[TotalM].desc, 512, streamb );
-
-	fclose (streamb);
 }
 
 void ReadC2MapInfo(FILE *stream) {
