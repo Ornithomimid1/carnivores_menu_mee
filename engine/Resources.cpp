@@ -2109,18 +2109,19 @@ void LoadUserList() {
 }
 
 void GetAcessDesc(char fname[128],int ID) {
-	FILE *streamb;
-	char line[256];
 
-	streamb = fopen(fname, "r");
-	if (!streamb) {
-		PrintLog("Could Not Read acessory txt desc\n");
-		return;
+	wsprintf(logt, fname);
+	hfile = CreateFile(logt, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	if (hfile != INVALID_HANDLE_VALUE) {
+		ReadFile(hfile, AcessInfo[ID].MenuTxt, 300, &l, NULL);
+		CloseHandle(hfile);
+	}
+	else {
+		PrintLog("Failed to load access txt from ");
+		PrintLog(logt);
+		PrintLog("\n");
 	}
 
-	fgets( AcessInfo[ID].MenuTxt, 512, streamb );
-
-	fclose (streamb);
 	return;
 }
 

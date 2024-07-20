@@ -475,15 +475,14 @@ void ShowControlElements()
 				  //-> Loop through it looking for line breaks (character code 13).
 				  y = 93;
 				  x = 413;
-				  char *p;
-				  p=strtok (ActiveInfoText,"/");
-				  int length;
-				  while (!strstr(p,"~") && p != NULL && length < 350)
+				  
+				  char * pch;
+				  pch = strtok(ActiveInfoText, "\n");
+				  while (pch != NULL)
 				  {
-					  STTextOut(x, y, p, RGB(64,180,64));
-					  p=strtok(NULL,"/");
-					  y+= 16;
-					  length++;
+					  STTextOut(x, y, pch, RGB(64, 180, 64));
+					  y += 16;
+					  pch = strtok(NULL, "\n");
 				  }
 	 
 			  }
