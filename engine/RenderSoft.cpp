@@ -359,18 +359,18 @@ void ShowControlElements()
 					  //-> Check if you can afford it...
 					  if (TrophyRoom.Score - (SpentCredits+MapFile[i].points) >= 0) {
 							STTextOut(x, y, MapFile[i].name, RGB(64,128,64));
-							wsprintf(logt,"$%d",MapFile[i].points);
+							wsprintf(logt,"%d",MapFile[i].points);
 							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(64,128,64));
 					  } else {
 						  //-> Gray it out
 							STTextOut(x, y, MapFile[i].name, RGB(93,93,93));
-							wsprintf(logt,"$%d",MapFile[i].points);
+							wsprintf(logt,"%d",MapFile[i].points);
 							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(93,93,93));
 					  }
 				  } else {
 					  //Is selected
 					STTextOut(x, y, MapFile[i].name, RGB(255,128,128));
-					wsprintf(logt,"$%d",MapFile[i].points);
+					wsprintf(logt,"%d",MapFile[i].points);
 					STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(255,128,128));
 				  }
 				  y += 16;
@@ -389,18 +389,18 @@ void ShowControlElements()
 					  //-> Check if you can afford it...
 					  if (TrophyRoom.Score - (SpentCredits+DinoInfo[i].Price) >= 0) {
 							STTextOut(x, y, DinoInfo[i].Name, RGB(64,128,64));
-							wsprintf(logt,"$%d",DinoInfo[i].Price);
+							wsprintf(logt,"%d",DinoInfo[i].Price);
 							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(64,128,64));
 					  } else {
 						  //-> Gray it out
   							STTextOut(x, y, DinoInfo[i].Name, RGB(93,93,93));
-							wsprintf(logt,"$%d",DinoInfo[i].Price);
+							wsprintf(logt,"%d",DinoInfo[i].Price);
 							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(93,93,93));
 					  }
 				  } else {
 					  //Is selected
 					STTextOut(x, y, DinoInfo[i].Name, RGB(255,128,128));
-					wsprintf(logt,"$%d",DinoInfo[i].Price);
+					wsprintf(logt,"%d",DinoInfo[i].Price);
 					STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(255,128,128));
 				  }
 				  y += 16;
@@ -421,18 +421,18 @@ void ShowControlElements()
 					  //-> Check if you can afford it
 					  if (TrophyRoom.Score - (SpentCredits+WeapInfo[i].Price) >= 0) {
 							STTextOut(x, y, WeapInfo[i].Name, RGB(64,128,64));
-							wsprintf(logt,"$%d",WeapInfo[i].Price);
+							wsprintf(logt,"%d",WeapInfo[i].Price);
 							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(64,128,64));
 					  } else {
 						  //-> Gray it out
 							STTextOut(x, y, WeapInfo[i].Name, RGB(93,93,93));
-							wsprintf(logt,"$%d",WeapInfo[i].Price);
+							wsprintf(logt,"%d",WeapInfo[i].Price);
 							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(93,93,93));
 					  }
 				  } else {
 					  //Is selected
 					STTextOut(x, y, WeapInfo[i].Name, RGB(255,128,128));
-					wsprintf(logt,"$%d",WeapInfo[i].Price);
+					wsprintf(logt,"%d",WeapInfo[i].Price);
 					STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(255,128,128));
 				  }
 				  y += 16;
@@ -453,18 +453,18 @@ void ShowControlElements()
 					  //-> Check if you COULD afford it...
 					  if (TrophyRoom.Score - (SpentCredits+AcessInfo[i].price) >= 0) {
 							STTextOut(x, y, AcessInfo[i].name, RGB(64,128,64));
-							wsprintf(logt,"$%d",AcessInfo[i].price);
+							wsprintf(logt,"%d",AcessInfo[i].price);
 							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(64,128,64));
 					  } else {
 						  //-> Can't afford it, so gray it out
 						  	STTextOut(x, y, AcessInfo[i].name, RGB(93,93,93));
-							wsprintf(logt,"$%d",AcessInfo[i].price);
+							wsprintf(logt,"%d",AcessInfo[i].price);
 							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(93,93,93));
 					  }
 				  } else {
 					  //Is selected
 					STTextOut(x, y, AcessInfo[i].name, RGB(255,128,128));
-					wsprintf(logt,"$%d",AcessInfo[i].price);
+					wsprintf(logt,"%d",AcessInfo[i].price);
 					STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(255,128,128));
 				  }
 				  y += 16;
@@ -490,9 +490,9 @@ void ShowControlElements()
 
 			  //-> Draw Points and spent points...
 			  hfntOld = (HFONT)SelectObject(hdcCMain, fnt_BIG);
-			  wsprintf(logt,"$%d",TrophyRoom.Score);
+			  wsprintf(logt,"%d",TrophyRoom.Score);
 			  STTextOut(330, 41, logt, RGB(0,150,0));
-			  wsprintf(logt,"$%d",TrophyRoom.Score - SpentCredits);
+			  wsprintf(logt,"%d",TrophyRoom.Score - SpentCredits);
 			  STTextOut(405, 41, logt, RGB(0,150,0));
 			  break;
 		  }
@@ -524,7 +524,7 @@ void ShowControlElements()
 			  //-> Draw Player name and score
 			  hfntOld = (HFONT)SelectObject(hdcCMain, fnt_BIG);
 			  STTextOut(90, 10, TrophyRoom.PlayerName, RGB(0,150,0));
-			  wsprintf(logt,"$%d",TrophyRoom.Score);
+			  wsprintf(logt,"%d",TrophyRoom.Score);
 			  STTextOut(475, 10, logt, RGB(0,150,0));
 			  //-> Draw Stats
 			  break;
@@ -536,7 +536,7 @@ void ShowControlElements()
 			  //-> Set Font Size... (big, small, or middle)
 		    hfntOld = (HFONT)SelectObject(hdcCMain, fnt_BIG);
 			STTextOut(90, 10, TrophyRoom.PlayerName, RGB(0,150,0));
-			wsprintf(logt,"$%d",TrophyRoom.Score);
+			wsprintf(logt,"%d",TrophyRoom.Score);
 			STTextOut(475, 10, logt, RGB(0,150,0));
 			break;
 		  }

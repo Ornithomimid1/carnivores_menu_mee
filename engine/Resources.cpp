@@ -2129,8 +2129,8 @@ void LoadResourcesScript()
     FILE *stream;
 	char line[256];
     
-	stream = fopen("HUNTDAT\\_res.txt", "r");
-    if (!stream) DoHalt("Can't open resources file _res.txt");
+	stream = fopen("HUNTDAT\\_menu.txt", "r");
+    if (!stream) DoHalt("Can't open resources file _menu.txt");
 
 	while (fgets( line, 255, stream)) {
        if (line[0] == '.') break;
