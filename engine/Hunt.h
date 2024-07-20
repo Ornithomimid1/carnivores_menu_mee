@@ -443,6 +443,11 @@ _EXTORNOT int TotalA,SpentCredits,SelectedDay;
 _EXTORNOT int * PtrSelectedKey; //Pointer to seleted key
 _EXTORNOT bool AKeySelected;
 
+_EXTORNOT char DawnTxt[512];
+_EXTORNOT char DayTxt[512];
+_EXTORNOT char NightTxt[512];
+_EXTORNOT char ObservTxt[512];
+
 typedef struct _TWeapInfo {
 	TPicture MenuPic;
 	char MenuTxt[512];

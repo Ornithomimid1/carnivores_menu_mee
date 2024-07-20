@@ -443,6 +443,25 @@ void DrawPostObjects()
 			  POINT ms;
 			  GetCursorPos(&ms);
 
+			  if (ms.y > 291 && ms.y < 322) {
+				  //-> Hovering Over dawn
+				  if (ms.x > 8 && ms.x < 69) {
+					  strcpy(ActiveInfoText, DawnTxt);
+				  }
+				  //-> Hovering Over day
+				  if (ms.x > 70 && ms.x < 132) {
+					  strcpy(ActiveInfoText, DayTxt);
+				  }
+				  //-> Hovering Over night
+				  if (ms.x > 133 && ms.x < 195) {
+					  strcpy(ActiveInfoText, NightTxt);
+				  }
+				  //-> Hovering Over observer
+				  if (ms.x > 606 && ms.x < 793) {
+					  strcpy(ActiveInfoText, ObservTxt);
+				  }
+			  }
+
 			  if (ms.x > 15 && ms.x < 180 && ms.y > 382 && ms.y < 545) {
 				  //-> Hovering Over map
 				  ClickedSlot = int( (ms.y - 382)/16); //-> SlotID = (ClickedY - MinimimY)/size_per_slot. See fonts in game.cpp for font sizes. This is using small

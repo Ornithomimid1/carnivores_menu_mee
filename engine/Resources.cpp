@@ -2140,6 +2140,59 @@ void LoadResourcesScript()
 	}
 	fclose (stream);
 
+	//->DAWN
+	wsprintf(logt, "HUNTDAT\\MENU\\TXT\\DAY1.NFO", TotalW + 1);
+	hfile = CreateFile(logt, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	if (hfile != INVALID_HANDLE_VALUE) {
+		ReadFile(hfile, DawnTxt, 300, &l, NULL);
+		CloseHandle(hfile);
+	}
+	else {
+		PrintLog("Failed to load dawn txt from ");
+		PrintLog(logt);
+		PrintLog("\n");
+	}
+
+	//->DAY
+	wsprintf(logt, "HUNTDAT\\MENU\\TXT\\DAY2.NFO", TotalW + 1);
+	hfile = CreateFile(logt, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	if (hfile != INVALID_HANDLE_VALUE) {
+		ReadFile(hfile, DayTxt, 300, &l, NULL);
+		CloseHandle(hfile);
+	}
+	else {
+		PrintLog("Failed to load day txt from ");
+		PrintLog(logt);
+		PrintLog("\n");
+	}
+
+	//->NIGHT
+	wsprintf(logt, "HUNTDAT\\MENU\\TXT\\DAY3.NFO", TotalW + 1);
+	hfile = CreateFile(logt, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	if (hfile != INVALID_HANDLE_VALUE) {
+		ReadFile(hfile, NightTxt, 300, &l, NULL);
+		CloseHandle(hfile);
+	}
+	else {
+		PrintLog("Failed to load night txt from ");
+		PrintLog(logt);
+		PrintLog("\n");
+	}
+
+	//->OBSERVER MODE
+	wsprintf(logt, "HUNTDAT\\MENU\\TXT\\OBSERVE.NFO", TotalW + 1);
+	hfile = CreateFile(logt, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	if (hfile != INVALID_HANDLE_VALUE) {
+		ReadFile(hfile, ObservTxt, 300, &l, NULL);
+		CloseHandle(hfile);
+	}
+	else {
+		PrintLog("Failed to load observer mode txt from ");
+		PrintLog(logt);
+		PrintLog("\n");
+	}
+
+
 	//-> Get Maps.....
 	LoadMapList(); //Build list of maps
 
