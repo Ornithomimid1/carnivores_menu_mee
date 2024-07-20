@@ -897,36 +897,36 @@ void LoadPicture(TPicture &pic, LPSTR pname)
 
 void LoadPictureTGA(TPicture &pic, LPSTR pname)
 {
-    DWORD l;
-	WORD w,h;
-    HANDLE hfile;
+	DWORD l;
+	WORD w, h;
+	HANDLE hfile;
 
-	
-    hfile = CreateFile(pname, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL );
-    if( hfile==INVALID_HANDLE_VALUE ) {		
-        char sz[512];
-        wsprintf( sz, "Error opening file\n%s.", pname );
-		DoHalt(sz);        
-    }
+
+	hfile = CreateFile(pname, GENERIC_READ, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+	if (hfile == INVALID_HANDLE_VALUE) {
+		char sz[512];
+		wsprintf(sz, "Error opening file\n%s.", pname);
+		DoHalt(sz);
+	}
 
 	SetFilePointer(hfile, 12, 0, FILE_BEGIN);
 
-    ReadFile( hfile, &w, 2, &l, NULL );
-    ReadFile( hfile, &h, 2, &l, NULL );
+	ReadFile(hfile, &w, 2, &l, NULL);
+	ReadFile(hfile, &h, 2, &l, NULL);
 
 	SetFilePointer(hfile, 18, 0, FILE_BEGIN);
-	
+
 	_HeapFree(Heap, 0, (void*)pic.lpImage);
 	pic.lpImage = NULL;
 
 	pic.W = w;
-    pic.H = h;
-	pic.lpImage = (WORD*) _HeapAlloc(Heap, 0, pic.W * pic.H * 2);
+	pic.H = h;
+	pic.lpImage = (WORD*)_HeapAlloc(Heap, 0, pic.W * pic.H * 2);
 
-    for (int y=0; y<pic.H; y++) 
-      ReadFile( hfile, (void*)(pic.lpImage + (pic.H-y-1)*pic.W), 2*pic.W, &l, NULL );
-   
-    CloseHandle( hfile );    
+	for (int y = 0; y < pic.H; y++)
+		ReadFile(hfile, (void*)(pic.lpImage + (pic.H - y - 1)*pic.W), 2 * pic.W, &l, NULL);
+
+	CloseHandle(hfile);
 }
 
 
@@ -1403,11 +1403,13 @@ void LoadCharacters()
 		}
 	}
 
+	int max;
 #ifdef _iceage // alacn
-	for (c=10; c<20; c++) 
+	max = 20; 
 #else
-	for (int c=10; c<19; c++)
+	max = 19;
 #endif
+	for (int c = 10; c < max; c++)
 		if (TargetDino & (1<<c)) 	
 			if (!DinoInfo[AI_to_CIndex[c]].CallIcon.lpImage) {		
 			  wsprintf(logt, "HUNTDAT\\MENU\\PICS\\call%d.tga", c-9);
@@ -1434,11 +1436,13 @@ void LoadCharacters()
 			
 	}
 
+	int max2;
 #ifdef _iceage // alacn
-    for (c=10; c<20; c++) 
+    max2= 20; 
 #else
-	for (int c=10; c<19; c++)
+	max2 = 19;
 #endif
+		for (int c = 10; c < max2; c++)
 		if (TargetDino & (1<<c))
 			if (!fxCall[c-10][0].lpData) {
 				wsprintf(logt,"HUNTDAT\\SOUNDFX\\CALLS\\call%d_a.wav", (c-9));
@@ -1769,7 +1773,7 @@ void SaveScreenShot()
 
     // char t[12];
 	char t[16]; // 12 + null
-    wsprintf(t,"HUNT%d"__DATE__ ".BMP",++_shotcounter);
+    wsprintf(t,"HUNT%d" __DATE__ ".BMP",++_shotcounter);
     hf = CreateFile(t,
                    GENERIC_READ | GENERIC_WRITE, 
                    (DWORD) 0, 
@@ -2179,7 +2183,7 @@ void LoadResourcesScript()
 	strcpy(AcessInfo[5].CommandLine,"-tranq");
 	AcessInfo[5].price = 0;
 	GetAcessDesc("huntdat\\menu\\txt\\tranq.NFO",TotalA);
-	LoadPictureTGA(AcessInfo[TotalA].MenuPic,"huntdat\\menu\\pics\\EQUIP6.tga");
+	LoadPictureTGA(AcessInfo[TotalA].MenuPic, "huntdat\\menu\\pics\\EQUIP6.tga");
 	TotalA++;
 
 	//-> Get Users....

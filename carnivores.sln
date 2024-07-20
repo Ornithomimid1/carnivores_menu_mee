@@ -1,8 +1,10 @@
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual C++ Express 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "engine", "engine\engine.vcproj", "{A584D798-CA9A-4032-B16E-188B85EBD847}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.34526.175
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "engine", "engine\engine.vcxproj", "{A584D798-CA9A-4032-B16E-188B85EBD847}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sound", "sound\sound.vcproj", "{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sound", "sound\sound.vcxproj", "{23A6FD4D-2C2E-4970-9BF0-C47AC1D251CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -46,8 +48,8 @@ Global
 		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_C2_D3D|Win32.Build.0 = Release_C2_D3D|Win32
 		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_C2_Soft|Win32.ActiveCfg = Release_C2_Soft|Win32
 		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_C2_Soft|Win32.Build.0 = Release_C2_Soft|Win32
-		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_C2|Win32.ActiveCfg = Release_C2_3DFX|Win32
-		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_C2|Win32.Build.0 = Release_C2_3DFX|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_C2|Win32.ActiveCfg = Release_C2_Soft|Win32
+		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_C2|Win32.Build.0 = Release_C2_Soft|Win32
 		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_Ice_3DFX|Win32.ActiveCfg = Release_Ice_3DFX|Win32
 		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_Ice_3DFX|Win32.Build.0 = Release_Ice_3DFX|Win32
 		{A584D798-CA9A-4032-B16E-188B85EBD847}.Release_Ice_D3D|Win32.ActiveCfg = Release_Ice_D3D|Win32
@@ -91,5 +93,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A034D76-131E-4913-A7DF-6A93FF0EC4A6}
 	EndGlobalSection
 EndGlobal
