@@ -480,6 +480,8 @@ void DrawPostObjects()
 				  if (strlen(DinoInfo[(ClickedSlot+FieldOffset+7)].Name) >0 ) {
 					DrawPicture(38,73,DinoInfo[(ClickedSlot+FieldOffset+7)].MenuPic);
 					strcpy(ActiveInfoText,DinoInfo[(ClickedSlot+FieldOffset+7)].MenuTxt);
+					DinoStatType = 1;
+					DinoStatIndex = (ClickedSlot + FieldOffset + 7);
 				  }
 
 			  }
@@ -492,6 +494,8 @@ void DrawPostObjects()
 				  if (strlen(WeapInfo[(ClickedSlot+FieldOffset)].Name) > 0) {
 					  DrawPicture(38,73,WeapInfo[(ClickedSlot+FieldOffset)].MenuPic);
 					  strcpy(ActiveInfoText,WeapInfo[ClickedSlot+FieldOffset].MenuTxt);
+					  DinoStatType = 2;
+					  DinoStatIndex = (ClickedSlot + FieldOffset);
 					}
 			  }
 			 

@@ -53,7 +53,6 @@ float k;
 BOOL LockWater;
 int OpacityMode;
 
-
 void STTextOut(int x, int y, LPSTR t, int color)
 {
 	SetTextColor(hdcCMain, 0x00000000);
@@ -473,18 +472,30 @@ void ShowControlElements()
 			  //-> Now draw Menu Info Text..
 			  if (strlen(ActiveInfoText) > 0 ) {
 				  //-> Loop through it looking for line breaks (character code 13).
-				  y = 93;
+				  y = 78;
 				  x = 413;
 				  
 				  char * pch;
 				  pch = strtok(ActiveInfoText, "\n");
 				  while (pch != NULL)
 				  {
-					  STTextOut(x, y, pch, RGB(64, 180, 64));
+					  STTextOut(x, y, pch, RGB(148, 148, 66));
 					  y += 16;
 					  pch = strtok(NULL, "\n");
 				  }
-	 
+
+				  if (DinoStatType == 1) {
+					  DrawStatBar(526, 204, DinoInfo[DinoStatIndex].LookK, "Sight");
+					  DrawStatBar(526, 224, DinoInfo[DinoStatIndex].SmellK, "Scent");
+					  DrawStatBar(526, 244, DinoInfo[DinoStatIndex].HearK, "Hearing");
+					  DinoStatType = 0;
+				  } else if (DinoStatType == 2) {
+					  DrawStatBar(526, 204, WeapInfo[DinoStatIndex].Power / 8, "Fire power:");
+					  DrawStatBar(526, 224, WeapInfo[DinoStatIndex].Prec / 2, "Shot precision:");
+					  DrawStatBar(526, 244, WeapInfo[DinoStatIndex].Loud / 2, "Volume:");
+					  DrawStatBar(526, 264, WeapInfo[DinoStatIndex].Rate / 2, "Rate of fire:");
+					  DinoStatType = 0;
+				  }
 			  }
 
 			  //-> Draw Points and spent points...
@@ -2646,6 +2657,68 @@ void Put8pix(int X,int Y)
   PutPixel(CircleCX - Y, CircleCY + X);
   PutPixel(CircleCX - Y, CircleCY - X);
 }
+
+void DrawStatBar(int x, int y, float val, LPSTR StatTxt) {
+
+	UINT uAlignPrev = GetTextAlign(hdcCMain);
+	SetTextAlign(hdcCMain, TA_RIGHT);
+
+	//HFONT hfntOld = (HFONT)SelectObject(hdcCMain, fnt_Small);
+	STTextOut(x - 6, y - 2, StatTxt, RGB(148, 148, 66));
+	SetTextAlign(hdcCMain, uAlignPrev);
+
+	//HFONT hfntOld = (HFONT)SelectObject(hdcCMain, fnt_Small);
+	//SelectObject(hdcCMain, hfntOld);
+	//STTextOut(413, 93, "TEST", RGB(64, 180, 64));
+	//STTextOut(x, y, pch, RGB(64, 180, 64));
+
+	int ival = (int)(val * 119);
+	byte cc = 0;
+	byte gg = 173;
+	WORD black555 = ((cc >> 3) << 10) | ((cc >> 3) << 5) | (cc >> 3);
+	cc = 156;
+	WORD grey555 = ((cc >> 3) << 10) | ((cc >> 3) << 5) | (cc >> 3);
+	cc = 57;
+	WORD green555 = ((cc >> 3) << 10) | ((gg >> 3) << 5) | (cc >> 3);
+	
+	for (int xx = x + 1; xx < x + 121; xx++) {
+		*((WORD*)lpVideoBuf + (y + 1) * 1024 + xx) = black555;
+		*((WORD*)lpVideoBuf + (y + 10) * 1024 + xx) = black555;
+	}
+	
+	for (int yy = y + 1; yy < y + 10; yy++) {
+		*((WORD*)lpVideoBuf + yy * 1024 + (x+1)) = black555;
+		*((WORD*)lpVideoBuf + yy * 1024 + (x + 31)) = black555;
+		*((WORD*)lpVideoBuf + yy * 1024 + (x + 61)) = black555;
+		*((WORD*)lpVideoBuf + yy * 1024 + (x + 91)) = black555;
+		*((WORD*)lpVideoBuf + yy * 1024 + (x + 121)) = black555;
+	}
+	
+	for (int xx = x; xx < x + 121; xx++) {
+		*((WORD*)lpVideoBuf + y * 1024 + xx) = grey555;
+		*((WORD*)lpVideoBuf + (y+9) * 1024 + xx) = grey555;
+	}
+	
+	for (int yy = y; yy < y + 9; yy++) {
+		*((WORD*)lpVideoBuf + yy * 1024 + x) = grey555;
+		*((WORD*)lpVideoBuf + yy * 1024 + (x + 30)) = grey555;
+		*((WORD*)lpVideoBuf + yy * 1024 + (x + 60)) = grey555;
+		*((WORD*)lpVideoBuf + yy * 1024 + (x + 90)) = grey555;
+		*((WORD*)lpVideoBuf + yy * 1024 + (x + 120)) = grey555;
+	}
+
+	if (ival) {
+		for (int xx = x + 1; xx < x + ival; xx++) {
+			for (int yy = y + 3; yy < y + 7; yy++) {
+				*((WORD*)lpVideoBuf + (yy+1) * 1024 + (xx+1)) = black555;
+				*((WORD*)lpVideoBuf + yy * 1024 + xx) = green555;
+			}
+		}
+	}
+	
+}
+
+
 
 void DrawCircle(int cx, int cy, int R)
 {

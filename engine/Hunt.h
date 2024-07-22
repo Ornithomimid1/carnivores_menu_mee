@@ -580,12 +580,16 @@ void Render_LifeInfo(int);
 void RenderModelClipEnvMap(TModel*, float, float, float, float, float);
 void RenderModelClipPhongMap(TModel*, float, float, float, float, float);
 
+_EXTORNOT int DinoStatType; // 1 dino  2 weap
+_EXTORNOT int DinoStatIndex;
+
 void RenderModel         (TModel*, float, float, float, int, int, float, float);
 void RenderBMPModel      (TBMPModel*, float, float, float, int);
 void RenderModelClipWater(TModel*, float, float, float, int, int, float, float);
 void RenderModelClip     (TModel*, float, float, float, int, int, float, float);
 void RenderNearModel     (TModel*, float, float, float, int, float, float);
 void DrawPicture         (int x, int y, TPicture &pic);
+void DrawStatBar         (int x, int y, float val, LPSTR txt);
 
 void InitClips();
 void InitDirectDraw();
