@@ -124,7 +124,7 @@ void ShowControlElements()
 	  } else {  
 		wsprintf(logt,"-> %s%s",TypedText,blink);
 	  }
-	  STTextOut(306,324, logt, RGB(128,255,128));
+	  STTextOut(306,324, logt, regOnFontC);//RGB(128,255,128)
   }
 
   if (DEBUG_ASKFORPASS) {
@@ -144,199 +144,199 @@ void ShowControlElements()
 				hfntOld = (HFONT)SelectObject(hdcCMain, fnt_BIG);
 			  //-> Game
 							//wsprintf(logt,"%s",KeysName[KeyMap.fkForward-70]);
-				STTextOut(190-GetTextW(hdcCMain,"Aggresivity"), 100, "Aggresivity", RGB(181,134,82));
-				STTextOut(190-GetTextW(hdcCMain,"Density"), 122, "Density", RGB(181,134,82));
-				STTextOut(190-GetTextW(hdcCMain,"Sensitivity"), 144, "Sensitivity", RGB(181,134,82));
-				STTextOut(190-GetTextW(hdcCMain,"View Range"), 166, "View Range", RGB(181,134,82));
-				STTextOut(190-GetTextW(hdcCMain,"Measurement"), 188, "Measurement", RGB(181,134,82));
+				STTextOut(190-GetTextW(hdcCMain,"Aggresivity"), 100, "Aggresivity", opNameFontC);
+				STTextOut(190-GetTextW(hdcCMain,"Density"), 122, "Density", opNameFontC);
+				STTextOut(190-GetTextW(hdcCMain,"Sensitivity"), 144, "Sensitivity", opNameFontC);
+				STTextOut(190-GetTextW(hdcCMain,"View Range"), 166, "View Range", opNameFontC);
+				STTextOut(190-GetTextW(hdcCMain,"Measurement"), 188, "Measurement", opNameFontC);
 				switch (OptSys) {
 					case 0: //Metric
-							STTextOut(205, 188, "Metric", RGB(165,182,181));
+							STTextOut(205, 188, "Metric", opValueFontC);
 						break;
 					case 1: //US
-							STTextOut(205, 188, "US", RGB(165,182,181));
+							STTextOut(205, 188, "US", opValueFontC);
 						break;
 				}
 				//->System
 				wsprintf(logt,"Audio Driver:");
-				STTextOut(190-GetTextW(hdcCMain,logt), 353, logt, RGB(181,134,82));
+				STTextOut(190-GetTextW(hdcCMain,logt), 353, logt, opNameFontC);
 				switch (OptSound) {
 					case 0: //Soft
-							STTextOut(205, 353+(22*0), "Software Stereo", RGB(165,182,181));
+							STTextOut(205, 353+(22*0), "Software Stereo", opValueFontC);
 						break;
 					case 1: //directsound
-							STTextOut(205, 353+(22*0), "DirectSound 3D", RGB(165,182,181));
+							STTextOut(205, 353+(22*0), "DirectSound 3D", opValueFontC);
 						break;
 					case 2: //aureal
-							STTextOut(205, 353+(22*0), "Aureal A3D", RGB(165,182,181));
+							STTextOut(205, 353+(22*0), "Aureal A3D", opValueFontC);
 						break;
 					case 3: //Creative EAX
-							STTextOut(205, 353+(22*0), "Creative EAX", RGB(165,182,181));
+							STTextOut(205, 353+(22*0), "Creative EAX", opValueFontC);
 						break;
 				}
 				wsprintf(logt,"Video Driver:");
-				STTextOut(190-GetTextW(hdcCMain,logt), 353+(22*1), logt, RGB(181,134,82));
+				STTextOut(190-GetTextW(hdcCMain,logt), 353+(22*1), logt, opNameFontC);
 				switch (OptRender) {
 					case 0: //Soft
-							STTextOut(205, 353+(22*1), "Software", RGB(165,182,181));
+							STTextOut(205, 353+(22*1), "Software", opValueFontC);
 						break;
 					case 1: //3dfx
-							STTextOut(205, 353+(22*1), "3DFX(Not Supported)", RGB(165,182,181));
+							STTextOut(205, 353+(22*1), "3DFX(Not Supported)", opValueFontC);
 						break;
 					case 2: //d3d
-							STTextOut(205, 353+(22*1), "Direct3D", RGB(165,182,181));
+							STTextOut(205, 353+(22*1), "Direct3D", opValueFontC);
 						break;
 					case 3: //d3d software
-							STTextOut(205, 353+(22*1), "Direct3D Software", RGB(165,182,181));
+							STTextOut(205, 353+(22*1), "Direct3D Software", opValueFontC);
 						break;
 				}
 				wsprintf(logt,"Resolution:");
-				STTextOut(190-GetTextW(hdcCMain,logt), 353+(22*2), logt, RGB(181,134,82));
+				STTextOut(190-GetTextW(hdcCMain,logt), 353+(22*2), logt, opNameFontC);
 				switch (OptRes) {
 					case 0: //320x240
-							STTextOut(205, 353+(22*2), "320x240", RGB(165,182,181));
+							STTextOut(205, 353+(22*2), "320x240", opValueFontC);
 						break;
 					case 1: //400x300
-							STTextOut(205, 353+(22*2), "400x300", RGB(165,182,181));
+							STTextOut(205, 353+(22*2), "400x300", opValueFontC);
 						break;
 					case 2: //512x384
-							STTextOut(205, 353+(22*2), "512x384", RGB(165,182,181));
+							STTextOut(205, 353+(22*2), "512x384", opValueFontC);
 						break;
 					case 3: //640x480
-							STTextOut(205, 353+(22*2), "640x480", RGB(165,182,181));
+							STTextOut(205, 353+(22*2), "640x480", opValueFontC);
 						break;
 					case 4: //800x600
-							STTextOut(205, 353+(22*2), "800x600", RGB(165,182,181));
+							STTextOut(205, 353+(22*2), "800x600", opValueFontC);
 						break;
 					case 5: //1024x768
-							STTextOut(205, 353+(22*2), "1024x768", RGB(165,182,181));
+							STTextOut(205, 353+(22*2), "1024x768", opValueFontC);
 						break;
 					case 6: //1280x1024
-							STTextOut(205, 353+(22*2), "1280x1024", RGB(165,182,181));
+							STTextOut(205, 353+(22*2), "1280x1024", opValueFontC);
 						break;
 					case 7: //1600x1200
-							STTextOut(205, 353+(22*2), "1600x1200", RGB(165,182,181));
+							STTextOut(205, 353+(22*2), "1600x1200", opValueFontC);
 						break;
 				}
-				STTextOut(190-GetTextW(hdcCMain,"3D Shadows:"), 353+(22*3), "3D Shadows:", RGB(181,134,82));
+				STTextOut(190-GetTextW(hdcCMain,"3D Shadows:"), 353+(22*3), "3D Shadows:", opNameFontC);
 					if (SHADOWS3D)
-						STTextOut(205, 353+(22*3), "On", RGB(165,182,181));
+						STTextOut(205, 353+(22*3), "On", opValueFontC);
 					else
-						STTextOut(205, 353+(22*3), "Off", RGB(165,182,181));
-					STTextOut(190-GetTextW(hdcCMain,"Fog:"), 353+(22*4), "Fog:", RGB(181,134,82));
+						STTextOut(205, 353+(22*3), "Off", opValueFontC);
+					STTextOut(190-GetTextW(hdcCMain,"Fog:"), 353+(22*4), "Fog:", opNameFontC);
 					if (FOGENABLE)
-						STTextOut(205, 353+(22*4), "On", RGB(165,182,181));
+						STTextOut(205, 353+(22*4), "On", opValueFontC);
 					else
-						STTextOut(205, 353+(22*4), "Off", RGB(165,182,181));
-					STTextOut(190-GetTextW(hdcCMain,"Textures:"), 353+(22*5), "Textures:", RGB(181,134,82));
+						STTextOut(205, 353+(22*4), "Off", opValueFontC);
+					STTextOut(190-GetTextW(hdcCMain,"Textures:"), 353+(22*5), "Textures:", opNameFontC);
 				switch (OptText) {
 					case 0: //low
-							STTextOut(205, 353+(22*5), "Low", RGB(165,182,181));
+							STTextOut(205, 353+(22*5), "Low", opValueFontC);
 						break;
 					case 1: //high
-							STTextOut(205, 353+(22*5), "High", RGB(165,182,181));
+							STTextOut(205, 353+(22*5), "High", opValueFontC);
 						break;
 					case 2: //auto
-							STTextOut(205, 353+(22*5), "Auto", RGB(165,182,181));
+							STTextOut(205, 353+(22*5), "Auto", opValueFontC);
 						break;
 				}
-					STTextOut(190-GetTextW(hdcCMain,"Brightness:"), 353+(22*6), "Brightness:", RGB(181,134,82));
+					STTextOut(190-GetTextW(hdcCMain,"Brightness:"), 353+(22*6), "Brightness:", opNameFontC);
 				//->Keys: start: X:600 Y:71: KeysName[KeyMap.fkForward-70]
-				STTextOut(600-GetTextW(hdcCMain,"Forward"), 71+(22*0), "Forward", RGB(181,134,82));
+				STTextOut(600-GetTextW(hdcCMain,"Forward"), 71+(22*0), "Forward", opNameFontC);
 				 if (PtrSelectedKey != &KeyMap.fkForward || !AKeySelected)
-					STTextOut(617, 71+(22*0), KeysName[KeyMap.fkForward], RGB(165,182,181));
+					STTextOut(617, 71+(22*0), KeysName[KeyMap.fkForward], opValueFontC);
 				 else
-					STTextOut(617, 71+(22*0), "<...>", RGB(165,182,181));
+					STTextOut(617, 71+(22*0), "<...>", opValueFontC);
 
-				STTextOut(600-GetTextW(hdcCMain,"Backward"), 71+(22*1), "Backward", RGB(181,134,82));
+				STTextOut(600-GetTextW(hdcCMain,"Backward"), 71+(22*1), "Backward", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkBackward || !AKeySelected)
-					STTextOut(617, 71+(22*1), KeysName[KeyMap.fkBackward], RGB(165,182,181));
+					STTextOut(617, 71+(22*1), KeysName[KeyMap.fkBackward], opValueFontC);
 				else
-					STTextOut(617, 71+(22*1), "<...>", RGB(165,182,181));
+					STTextOut(617, 71+(22*1), "<...>", opValueFontC);
 
-				STTextOut(600-GetTextW(hdcCMain,"Fire"), 71+(22*2), "Fire", RGB(181,134,82));
+				STTextOut(600-GetTextW(hdcCMain,"Fire"), 71+(22*2), "Fire", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkFire || !AKeySelected)
-					STTextOut(617, 71+(22*2), KeysName[KeyMap.fkFire], RGB(165,182,181));
+					STTextOut(617, 71+(22*2), KeysName[KeyMap.fkFire], opValueFontC);
 				else
-					STTextOut(617, 71+(22*2), "<...>", RGB(165,182,181));
+					STTextOut(617, 71+(22*2), "<...>", opValueFontC);
 
-				STTextOut(600-GetTextW(hdcCMain,"Hide Weapon"), 71+(22*3), "Hide Weapon", RGB(181,134,82));
+				STTextOut(600-GetTextW(hdcCMain,"Hide Weapon"), 71+(22*3), "Hide Weapon", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkShow || !AKeySelected)
-					STTextOut(617, 71+(22*3), KeysName[KeyMap.fkShow], RGB(165,182,181));
+					STTextOut(617, 71+(22*3), KeysName[KeyMap.fkShow], opValueFontC);
 				else
-					STTextOut(617, 71+(22*3), "<...>", RGB(165,182,181));
+					STTextOut(617, 71+(22*3), "<...>", opValueFontC);
 
-				STTextOut(600-GetTextW(hdcCMain,"Step Left"), 71+(22*4), "Step Left", RGB(181,134,82));
+				STTextOut(600-GetTextW(hdcCMain,"Step Left"), 71+(22*4), "Step Left", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkSLeft || !AKeySelected)
-					STTextOut(617, 71+(22*4), KeysName[KeyMap.fkSLeft], RGB(165,182,181));
+					STTextOut(617, 71+(22*4), KeysName[KeyMap.fkSLeft], opValueFontC);
 				else
-					STTextOut(617, 71+(22*4), "<...>", RGB(165,182,181));
+					STTextOut(617, 71+(22*4), "<...>", opValueFontC);
 
-				STTextOut(600-GetTextW(hdcCMain,"Step Right"), 71+(22*5), "Step Right", RGB(181,134,82));
+				STTextOut(600-GetTextW(hdcCMain,"Step Right"), 71+(22*5), "Step Right", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkSRight || !AKeySelected)
-					STTextOut(617, 71+(22*5), KeysName[KeyMap.fkSRight], RGB(165,182,181));
+					STTextOut(617, 71+(22*5), KeysName[KeyMap.fkSRight], opValueFontC);
 				else
-					STTextOut(617, 71+(22*5), "<...>", RGB(165,182,181));
-				STTextOut(600-GetTextW(hdcCMain,"Jump"), 71+(22*6), "Jump", RGB(181,134,82));
+					STTextOut(617, 71+(22*5), "<...>", opValueFontC);
+				STTextOut(600-GetTextW(hdcCMain,"Jump"), 71+(22*6), "Jump", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkJump || !AKeySelected)
-					STTextOut(617, 71+(22*6), KeysName[KeyMap.fkJump], RGB(165,182,181));
+					STTextOut(617, 71+(22*6), KeysName[KeyMap.fkJump], opValueFontC);
 				else
-					STTextOut(617, 71+(22*6), "<...>", RGB(165,182,181));
+					STTextOut(617, 71+(22*6), "<...>", opValueFontC);
 
-				STTextOut(600-GetTextW(hdcCMain,"Run"), 71+(22*7), "Run", RGB(181,134,82));
+				STTextOut(600-GetTextW(hdcCMain,"Run"), 71+(22*7), "Run", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkRun || !AKeySelected)
-					STTextOut(617, 71+(22*7), KeysName[KeyMap.fkRun], RGB(165,182,181));
+					STTextOut(617, 71+(22*7), KeysName[KeyMap.fkRun], opValueFontC);
 				else
-					STTextOut(617, 71+(22*7), "<...>", RGB(165,182,181));
+					STTextOut(617, 71+(22*7), "<...>", opValueFontC);
 
-				STTextOut(600-GetTextW(hdcCMain,"Crouch"), 71+(22*8), "Crouch", RGB(181,134,82));
+				STTextOut(600-GetTextW(hdcCMain,"Crouch"), 71+(22*8), "Crouch", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkCrouch || !AKeySelected)
-					STTextOut(617, 71+(22*8), KeysName[KeyMap.fkCrouch], RGB(165,182,181));
+					STTextOut(617, 71+(22*8), KeysName[KeyMap.fkCrouch], opValueFontC);
 				else
-					STTextOut(617, 71+(22*8), "<...>", RGB(165,182,181));
+					STTextOut(617, 71+(22*8), "<...>", opValueFontC);
 
-				STTextOut(600-GetTextW(hdcCMain,"Call"), 71+(22*9), "Call", RGB(181,134,82));
+				STTextOut(600-GetTextW(hdcCMain,"Call"), 71+(22*9), "Call", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkCall || !AKeySelected)
-					STTextOut(617, 71+(22*9), KeysName[KeyMap.fkCall], RGB(165,182,181));
+					STTextOut(617, 71+(22*9), KeysName[KeyMap.fkCall], opValueFontC);
 				else
-					STTextOut(617, 71+(22*9), "<...>", RGB(165,182,181));
-				STTextOut(600-GetTextW(hdcCMain,"Change Call"), 71+(22*10), "Change Call", RGB(181,134,82));
+					STTextOut(617, 71+(22*9), "<...>", opValueFontC);
+				STTextOut(600-GetTextW(hdcCMain,"Change Call"), 71+(22*10), "Change Call", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkCCall || !AKeySelected)
-					STTextOut(617, 71+(22*10), KeysName[KeyMap.fkCCall], RGB(165,182,181));
+					STTextOut(617, 71+(22*10), KeysName[KeyMap.fkCCall], opValueFontC);
 				else
-					STTextOut(617, 71+(22*10), "<...>", RGB(165,182,181));
-				STTextOut(600-GetTextW(hdcCMain,"Binoculars"), 71+(22*11), "Binoculars", RGB(181,134,82));
+					STTextOut(617, 71+(22*10), "<...>", opValueFontC);
+				STTextOut(600-GetTextW(hdcCMain,"Binoculars"), 71+(22*11), "Binoculars", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkBinoc || !AKeySelected)
-					STTextOut(617, 71+(22*11), KeysName[KeyMap.fkBinoc], RGB(165,182,181));
+					STTextOut(617, 71+(22*11), KeysName[KeyMap.fkBinoc], opValueFontC);
 				else
-					STTextOut(617, 71+(22*11), "<...>", RGB(165,182,181));
+					STTextOut(617, 71+(22*11), "<...>", opValueFontC);
 
 
-				STTextOut(600-GetTextW(hdcCMain,"Reverse Mouse"), 71+(22*12), "Reverse Mouse", RGB(181,134,82));
+				STTextOut(600-GetTextW(hdcCMain,"Reverse Mouse"), 71+(22*12), "Reverse Mouse", opNameFontC);
 				if (REVERSEMS)
-					STTextOut(615, 71+(22*12), "On", RGB(165,182,181));
+					STTextOut(615, 71+(22*12), "On", opValueFontC);
 				else
-					STTextOut(615, 71+(22*12), "Off", RGB(165,182,181));
-				STTextOut(600-GetTextW(hdcCMain,"Mouse Sensitivity"), 71+(22*13), "Mouse Sensitivity", RGB(181,134,82));
+					STTextOut(615, 71+(22*12), "Off", opValueFontC);
+				STTextOut(600-GetTextW(hdcCMain,"Mouse Sensitivity"), 71+(22*13), "Mouse Sensitivity", opNameFontC);
 				//-> WOW that was a pain....
 				//-> Add my keys....
-				STTextOut(600-GetTextW(hdcCMain,"Sprint"), 71+(22*15), "Sprint", RGB(181,134,82));
+				STTextOut(600-GetTextW(hdcCMain,"Sprint"), 71+(22*15), "Sprint", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkSprint || !AKeySelected)
-					STTextOut(617, 71+(22*15), KeysName[KeyMap.fkSprint], RGB(165,182,181));
+					STTextOut(617, 71+(22*15), KeysName[KeyMap.fkSprint], opValueFontC);
 				else
-					STTextOut(617, 71+(22*15), "<...>", RGB(165,182,181));
+					STTextOut(617, 71+(22*15), "<...>", opValueFontC);
 
-				STTextOut(600-GetTextW(hdcCMain,"Aim"), 71+(22*16), "Aim", RGB(181,134,82));
+				STTextOut(600-GetTextW(hdcCMain,"Aim"), 71+(22*16), "Aim", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkAim || !AKeySelected)
-					STTextOut(617, 71+(22*16), KeysName[KeyMap.fkAim], RGB(165,182,181));
+					STTextOut(617, 71+(22*16), KeysName[KeyMap.fkAim], opValueFontC);
 				else
-					STTextOut(617, 71+(22*16), "<...>", RGB(165,182,181));
+					STTextOut(617, 71+(22*16), "<...>", opValueFontC);
 
-				STTextOut(600-GetTextW(hdcCMain,"Call Supplies"), 71+(22*17), "Call Supplies", RGB(181,134,82));
+				STTextOut(600-GetTextW(hdcCMain,"Call Supplies"), 71+(22*17), "Call Supplies", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkSupply || !AKeySelected)
-					STTextOut(617, 71+(22*17), KeysName[KeyMap.fkSupply], RGB(165,182,181));
+					STTextOut(617, 71+(22*17), KeysName[KeyMap.fkSupply], opValueFontC);
 				else
-					STTextOut(617, 71+(22*17), "<...>", RGB(165,182,181));
+					STTextOut(617, 71+(22*17), "<...>", opValueFontC);
 			  break;
 		  }
 	  case MENU_PREHUNT:
@@ -357,20 +357,20 @@ void ShowControlElements()
 					  //Map is not selected
 					  //-> Check if you can afford it...
 					  if (TrophyRoom.Score - (SpentCredits+MapFile[i].points) >= 0) {
-							STTextOut(x, y, MapFile[i].name, RGB(64,128,64));
+							STTextOut(x, y, MapFile[i].name, huntAvailFontC);
 							wsprintf(logt,"%d",MapFile[i].points);
-							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(64,128,64));
+							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntAvailFontC);
 					  } else {
 						  //-> Gray it out
-							STTextOut(x, y, MapFile[i].name, RGB(93,93,93));
+							STTextOut(x, y, MapFile[i].name, huntOffFontC);
 							wsprintf(logt,"%d",MapFile[i].points);
-							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(93,93,93));
+							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntOffFontC);
 					  }
 				  } else {
 					  //Is selected
-					STTextOut(x, y, MapFile[i].name, RGB(255,128,128));
+					STTextOut(x, y, MapFile[i].name, huntOnFontC);
 					wsprintf(logt,"%d",MapFile[i].points);
-					STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(255,128,128));
+					STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntOnFontC);
 				  }
 				  y += 16;
 			  }
@@ -387,20 +387,20 @@ void ShowControlElements()
 					  //Dino is not selected
 					  //-> Check if you can afford it...
 					  if (TrophyRoom.Score - (SpentCredits+DinoInfo[i].Price) >= 0) {
-							STTextOut(x, y, DinoInfo[i].Name, RGB(64,128,64));
+							STTextOut(x, y, DinoInfo[i].Name, huntAvailFontC);
 							wsprintf(logt,"%d",DinoInfo[i].Price);
-							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(64,128,64));
+							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntAvailFontC);
 					  } else {
 						  //-> Gray it out
-  							STTextOut(x, y, DinoInfo[i].Name, RGB(93,93,93));
+  							STTextOut(x, y, DinoInfo[i].Name, huntOffFontC);
 							wsprintf(logt,"%d",DinoInfo[i].Price);
-							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(93,93,93));
+							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntOffFontC);
 					  }
 				  } else {
 					  //Is selected
-					STTextOut(x, y, DinoInfo[i].Name, RGB(255,128,128));
+					STTextOut(x, y, DinoInfo[i].Name, huntOnFontC);
 					wsprintf(logt,"%d",DinoInfo[i].Price);
-					STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(255,128,128));
+					STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntOnFontC);
 				  }
 				  y += 16;
 			  }
@@ -419,20 +419,20 @@ void ShowControlElements()
 					  //Dino is not selected
 					  //-> Check if you can afford it
 					  if (TrophyRoom.Score - (SpentCredits+WeapInfo[i].Price) >= 0) {
-							STTextOut(x, y, WeapInfo[i].Name, RGB(64,128,64));
+							STTextOut(x, y, WeapInfo[i].Name, huntAvailFontC);
 							wsprintf(logt,"%d",WeapInfo[i].Price);
-							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(64,128,64));
+							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntAvailFontC);
 					  } else {
 						  //-> Gray it out
-							STTextOut(x, y, WeapInfo[i].Name, RGB(93,93,93));
+							STTextOut(x, y, WeapInfo[i].Name, huntOffFontC);
 							wsprintf(logt,"%d",WeapInfo[i].Price);
-							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(93,93,93));
+							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntOffFontC);
 					  }
 				  } else {
 					  //Is selected
-					STTextOut(x, y, WeapInfo[i].Name, RGB(255,128,128));
+					STTextOut(x, y, WeapInfo[i].Name, huntOnFontC);
 					wsprintf(logt,"%d",WeapInfo[i].Price);
-					STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(255,128,128));
+					STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntOnFontC);
 				  }
 				  y += 16;
 			  }
@@ -451,20 +451,20 @@ void ShowControlElements()
 					  //Acess is not selected
 					  //-> Check if you COULD afford it...
 					  if (TrophyRoom.Score - (SpentCredits+AcessInfo[i].price) >= 0) {
-							STTextOut(x, y, AcessInfo[i].name, RGB(64,128,64));
+							STTextOut(x, y, AcessInfo[i].name, huntAvailFontC);
 							wsprintf(logt,"%d",AcessInfo[i].price);
-							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(64,128,64));
+							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntAvailFontC);
 					  } else {
 						  //-> Can't afford it, so gray it out
-						  	STTextOut(x, y, AcessInfo[i].name, RGB(93,93,93));
+						  	STTextOut(x, y, AcessInfo[i].name, huntOffFontC);
 							wsprintf(logt,"%d",AcessInfo[i].price);
-							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(93,93,93));
+							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntOffFontC);
 					  }
 				  } else {
 					  //Is selected
-					STTextOut(x, y, AcessInfo[i].name, RGB(255,128,128));
+					STTextOut(x, y, AcessInfo[i].name, huntOnFontC);
 					wsprintf(logt,"%d",AcessInfo[i].price);
-					STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, RGB(255,128,128));
+					STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntOnFontC);
 				  }
 				  y += 16;
 			  }
@@ -479,7 +479,7 @@ void ShowControlElements()
 				  pch = strtok(ActiveInfoText, "\n");
 				  while (pch != NULL)
 				  {
-					  STTextOut(x, y, pch, RGB(148, 148, 66));
+					  STTextOut(x, y, pch, huntInfoFontC);
 					  y += 16;
 					  pch = strtok(NULL, "\n");
 				  }
@@ -501,9 +501,9 @@ void ShowControlElements()
 			  //-> Draw Points and spent points...
 			  hfntOld = (HFONT)SelectObject(hdcCMain, fnt_BIG);
 			  wsprintf(logt,"%d",TrophyRoom.Score);
-			  STTextOut(330, 41, logt, RGB(0,150,0));
+			  STTextOut(330, 41, logt, scoreFontC);
 			  wsprintf(logt,"%d",TrophyRoom.Score - SpentCredits);
-			  STTextOut(405, 41, logt, RGB(0,150,0));
+			  STTextOut(405, 41, logt, scoreFontC);
 			  break;
 		  }
 	  case MENU_LOGIN:
@@ -513,17 +513,17 @@ void ShowControlElements()
 			  y = 370;
 			  for (int usr = 0; usr < TOTAL_PLAYERS; usr++) {
 				  //->Name
-				  STTextOut(x, y, PlayerFile[usr].TrophyRoom.PlayerName, RGB(128,128,255));
+				  STTextOut(x, y, PlayerFile[usr].TrophyRoom.PlayerName, regOffFontC);
 				  //->Score
 				  // StartX = 488
 				  wsprintf(logt,"%d",PlayerFile[usr].TrophyRoom.Score);
-				  STTextOut(488-GetTextW(hdcMain,logt), y, logt, RGB(128,128,255));
+				  STTextOut(488-GetTextW(hdcMain,logt), y, logt, regOffFontC);
 				  y += 18;
 			  }
 			  if (TOTAL_PLAYERS < 6) {
 				  //->Draw '...'/empty slots
 				  for (int slot = 0; slot < 6-TOTAL_PLAYERS; slot++) {
-					  STTextOut(x, y, "...", RGB(128,128,255));
+					  STTextOut(x, y, "...", regOffFontC);
 					  y += 18;
 				  }
 			  }
@@ -533,10 +533,10 @@ void ShowControlElements()
 		  {
 			  //-> Draw Player name and score
 			  hfntOld = (HFONT)SelectObject(hdcCMain, fnt_BIG);
-			  STTextOut(90, 10, TrophyRoom.PlayerName, RGB(0,150,0));
+			  STTextOut(90, 10, TrophyRoom.PlayerName, scoreFontC);
 			  wsprintf(logt,"%d",TrophyRoom.Score);
-			  STTextOut(475, 10, logt, RGB(0,150,0));
-			  //-> Draw Stats
+			  STTextOut(475, 10, logt, scoreFontC);
+			  //-> Draw Stats	------------------------------- Oli- todo
 			  break;
 		  }
 	  case MENU_QUIT:
@@ -545,9 +545,9 @@ void ShowControlElements()
 		  //-> Draw Player name and score
 			  //-> Set Font Size... (big, small, or middle)
 		    hfntOld = (HFONT)SelectObject(hdcCMain, fnt_BIG);
-			STTextOut(90, 10, TrophyRoom.PlayerName, RGB(0,150,0));
+			STTextOut(90, 10, TrophyRoom.PlayerName, scoreFontC);
 			wsprintf(logt,"%d",TrophyRoom.Score);
-			STTextOut(475, 10, logt, RGB(0,150,0));
+			STTextOut(475, 10, logt, scoreFontC);
 			break;
 		  }
   }
@@ -2664,7 +2664,7 @@ void DrawStatBar(int x, int y, float val, LPSTR StatTxt) {
 	SetTextAlign(hdcCMain, TA_RIGHT);
 
 	//HFONT hfntOld = (HFONT)SelectObject(hdcCMain, fnt_Small);
-	STTextOut(x - 6, y - 2, StatTxt, RGB(148, 148, 66));
+	STTextOut(x - 6, y - 2, StatTxt, huntInfoFontC);
 	SetTextAlign(hdcCMain, uAlignPrev);
 
 	//HFONT hfntOld = (HFONT)SelectObject(hdcCMain, fnt_Small);

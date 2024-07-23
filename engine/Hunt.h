@@ -583,6 +583,57 @@ void RenderModelClipPhongMap(TModel*, float, float, float, float, float);
 _EXTORNOT int DinoStatType; // 1 dino  2 weap
 _EXTORNOT int DinoStatIndex;
 
+_EXTORNOT int regOffR;
+_EXTORNOT int regOffG;
+_EXTORNOT int regOffB;
+_EXTORNOT int regOffFontC;
+
+_EXTORNOT int regOnR;
+_EXTORNOT int regOnG;
+_EXTORNOT int regOnB;
+_EXTORNOT int regOnFontC;
+
+_EXTORNOT int scoreR;
+_EXTORNOT int scoreG;
+_EXTORNOT int scoreB;
+_EXTORNOT int scoreFontC;
+
+_EXTORNOT int mainStatR;
+_EXTORNOT int mainStatG;
+_EXTORNOT int mainStatB;
+_EXTORNOT int mainStatFontC;
+
+_EXTORNOT int huntOffR;
+_EXTORNOT int huntOffG;
+_EXTORNOT int huntOffB;
+_EXTORNOT int huntOffFontC;
+
+_EXTORNOT int huntAvailR;
+_EXTORNOT int huntAvailG;
+_EXTORNOT int huntAvailB;
+_EXTORNOT int huntAvailFontC;
+
+_EXTORNOT int huntOnR;
+_EXTORNOT int huntOnG;
+_EXTORNOT int huntOnB;
+_EXTORNOT int huntOnFontC;
+
+_EXTORNOT int huntInfoR;
+_EXTORNOT int huntInfoG;
+_EXTORNOT int huntInfoB;
+_EXTORNOT int huntInfoFontC;
+
+_EXTORNOT int opNameR;
+_EXTORNOT int opNameG;
+_EXTORNOT int opNameB;
+_EXTORNOT int opNameFontC;
+
+_EXTORNOT int opValueR;
+_EXTORNOT int opValueG;
+_EXTORNOT int opValueB;
+_EXTORNOT int opValueFontC;
+
+
 void RenderModel         (TModel*, float, float, float, int, int, float, float);
 void RenderBMPModel      (TBMPModel*, float, float, float, int);
 void RenderModelClipWater(TModel*, float, float, float, int, int, float, float);

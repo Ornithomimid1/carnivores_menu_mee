@@ -1902,6 +1902,73 @@ void ReadWeapons(FILE *stream)
 
 }
 
+void ReadFonts(FILE *stream)
+{
+	char line[256], *value;
+	while (fgets(line, 255, stream))
+	{
+		if (strstr(line, "}")) {
+			regOffFontC = RGB(regOffR, regOffG, regOffB);
+			regOnFontC = RGB(regOnR, regOnG, regOnB);
+			scoreFontC = RGB(scoreR, scoreG, scoreB);
+			mainStatFontC = RGB(mainStatR, mainStatG, mainStatB);
+			huntOffFontC = RGB(huntOffR, huntOffG, huntOffB);
+			huntAvailFontC = RGB(huntAvailR, huntAvailG, huntAvailB);
+			huntOnFontC = RGB(huntOnR, huntOnG, huntOnB);
+			huntInfoFontC = RGB(huntInfoR, huntInfoG, huntInfoB);
+			opNameFontC = RGB(opNameR, opNameG, opNameB);
+			opValueFontC = RGB(opValueR, opValueG, opValueB);
+			break;
+		}
+
+		value = strstr(line, "=");
+		if (!value)
+			DoHalt("Script loading error");
+		value++;
+
+		if (strstr(line, "regOffR")) regOffR = atoi(value);
+		if (strstr(line, "regOffG")) regOffG = atoi(value);
+		if (strstr(line, "regOffB")) regOffB = atoi(value);
+
+		if (strstr(line, "regOnR")) regOnR = atoi(value);
+		if (strstr(line, "regOnG")) regOnG = atoi(value);
+		if (strstr(line, "regOnB")) regOnB = atoi(value);
+
+		if (strstr(line, "scoreR")) scoreR = atoi(value);
+		if (strstr(line, "scoreG")) scoreG = atoi(value);
+		if (strstr(line, "scoreB")) scoreB = atoi(value);
+
+		if (strstr(line, "mainStatR")) mainStatR = atoi(value);
+		if (strstr(line, "mainStatG")) mainStatG = atoi(value);
+		if (strstr(line, "mainStatB")) mainStatB = atoi(value);
+
+		if (strstr(line, "huntOffR")) huntOffR = atoi(value);
+		if (strstr(line, "huntOffG")) huntOffG = atoi(value);
+		if (strstr(line, "huntOffB")) huntOffB = atoi(value);
+
+		if (strstr(line, "huntAvailR")) huntAvailR = atoi(value);
+		if (strstr(line, "huntAvailG")) huntAvailG = atoi(value);
+		if (strstr(line, "huntAvailB")) huntAvailB = atoi(value);
+
+		if (strstr(line, "huntOnR")) huntOnR = atoi(value);
+		if (strstr(line, "huntOnG")) huntOnG = atoi(value);
+		if (strstr(line, "huntOnB")) huntOnB = atoi(value);
+
+		if (strstr(line, "huntInfoR")) huntInfoR = atoi(value);
+		if (strstr(line, "huntInfoG")) huntInfoG = atoi(value);
+		if (strstr(line, "huntInfoB")) huntInfoB = atoi(value);
+
+		if (strstr(line, "opNameR")) opNameR = atoi(value);
+		if (strstr(line, "opNameG")) opNameG = atoi(value);
+		if (strstr(line, "opNameB")) opNameB = atoi(value);
+
+		if (strstr(line, "opValueR")) opValueR = atoi(value);
+		if (strstr(line, "opValueG")) opValueG = atoi(value);
+		if (strstr(line, "opValueB")) opValueB = atoi(value);
+
+	}
+}
+
 
 void ReadCharacters(FILE *stream)
 {
@@ -2137,6 +2204,7 @@ void LoadResourcesScript()
        if (line[0] == '.') break;
 	   if (strstr(line, "weapons") ) ReadWeapons(stream);
 	   if (strstr(line, "characters") ) ReadCharacters(stream);
+	   if (strstr(line, "fonts")) ReadFonts(stream);
 	}
 	fclose (stream);
 

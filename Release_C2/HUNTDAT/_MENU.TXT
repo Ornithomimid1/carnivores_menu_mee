@@ -212,4 +212,38 @@ prices {
  acces  = 0
 }
 
+fonts {
+ regOffR = 165
+ regOffG = 115
+ regOffB = 49
+ regOnR = 115
+ regOnG = 148
+ regOnB = 49
+ scoreR = 165
+ scoreG = 115
+ scoreB = 49
+ mainStatR = 148
+ mainStatG = 148
+ mainStatB = 33
+ huntOffR = 99
+ huntOffG = 99
+ huntOffB = 99
+ huntAvailR = 49
+ huntAvailG = 148
+ huntAvailB = 148
+ huntOnR = 198
+ huntOnG = 181
+ huntOnB = 0
+ huntInfoR = 148
+ huntInfoG = 148
+ huntInfoB = 66
+ opNameR = 181
+ opNameG = 134
+ opNameB = 82
+ opValueR = 165
+ opValueG = 181
+ opValueB = 181
+}
+
+
 .
