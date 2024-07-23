@@ -536,7 +536,70 @@ void ShowControlElements()
 			  STTextOut(90, 10, TrophyRoom.PlayerName, scoreFontC);
 			  wsprintf(logt,"%d",TrophyRoom.Score);
 			  STTextOut(475, 10, logt, scoreFontC);
-			  //-> Draw Stats	------------------------------- Oli- todo
+
+			  //-> Draw Stats
+			  hfntOld = (HFONT)SelectObject(hdcCMain, fnt_Small);
+			  UINT uAlignPrev = GetTextAlign(hdcCMain);
+			  SetTextAlign(hdcCMain, TA_RIGHT);
+			  STTextOut(711, 81, "Path travelled", mainStatFontC);
+			  STTextOut(711, 101, "Time hunted", mainStatFontC);
+			  STTextOut(711, 121, "Shots made", mainStatFontC);
+			  STTextOut(711, 141, "Shots succeed", mainStatFontC);
+			  STTextOut(711, 211, "Path travelled", mainStatFontC);
+			  STTextOut(711, 231, "Time hunted", mainStatFontC);
+			  STTextOut(711, 251, "Shots made", mainStatFontC);
+			  STTextOut(711, 271, "Shots succeed", mainStatFontC);
+			  STTextOut(711, 291, "Success ratio", mainStatFontC);
+			  SetTextAlign(hdcCMain, uAlignPrev);
+			  
+			  if (TrophyRoom.Last.path >= 1000) {
+				  int pathDec = ((int)(TrophyRoom.Last.path)) % 1000;
+				  int pathDem = (((int)(TrophyRoom.Last.path)) - pathDec) / 1000;
+				  float pathDec2 = pathDec / 100;
+				  wsprintf(logt, "%d.%d m.", pathDem, (int)(pathDec2));
+			  }
+			  else {
+				  wsprintf(logt, "%d m.", (int)(TrophyRoom.Last.path));
+			  }
+			  STTextOut(719, 81, logt, mainStatFontC);
+
+			  int timeS = (int)(TrophyRoom.Last.time)%60;
+			  int timeM = (((int)(TrophyRoom.Last.time)% 3600)- timeS)/60;
+			  int timeH = ((int)(TrophyRoom.Last.time)- (timeM+timeS))/ 3600;
+			  wsprintf(logt, "%d:%02d:%02d", timeH, timeM, timeS);
+			  STTextOut(719, 101, logt, mainStatFontC);
+
+			  wsprintf(logt, "%d", TrophyRoom.Last.smade);
+			  STTextOut(719, 121, logt, mainStatFontC);
+			  wsprintf(logt, "%d", TrophyRoom.Last.success);
+			  STTextOut(719, 141, logt, mainStatFontC);
+			  
+			  
+			  if (TrophyRoom.Total.path >= 1000) {
+				  int pathDec = ((int)(TrophyRoom.Total.path)) % 1000;
+				  int pathDem = (((int)(TrophyRoom.Total.path)) - pathDec) / 1000;
+				  float pathDec2 = pathDec / 100;
+				  wsprintf(logt, "%d.%d m.", pathDem, (int)(pathDec2));
+			  } else {
+				  wsprintf(logt, "%d m.", (int)(TrophyRoom.Total.path));
+			  }
+			  STTextOut(719, 211, logt, mainStatFontC);
+
+			  timeS = (int)(TrophyRoom.Total.time) % 60;
+			  timeM = (((int)(TrophyRoom.Total.time) % 3600) - timeS) / 60;
+			  timeH = ((int)(TrophyRoom.Total.time) - (timeM + timeS)) / 3600;
+			  wsprintf(logt, "%d:%02d:%02d", timeH, timeM, timeS);
+			  STTextOut(719, 231, logt, mainStatFontC);
+
+			  wsprintf(logt, "%d", TrophyRoom.Total.smade);
+			  STTextOut(719, 251, logt, mainStatFontC);
+			  wsprintf(logt, "%d", TrophyRoom.Total.success);
+			  STTextOut(719, 271, logt, mainStatFontC);
+			  
+			  wsprintf(logt, "%d%s", (int)(((float)TrophyRoom.Total.success/(float)TrophyRoom.Total.smade) * 100), "%");
+			  STTextOut(719, 291, logt, mainStatFontC);
+			  
+
 			  break;
 		  }
 	  case MENU_QUIT:
