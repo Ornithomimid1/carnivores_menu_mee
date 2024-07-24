@@ -181,14 +181,14 @@ void ShowControlElements()
 							STTextOut(205, 353+(22*1), "Software", opValueFontC);
 						break;
 					case 1: //3dfx
-							STTextOut(205, 353+(22*1), "3DFX(Not Supported)", opValueFontC);
+							STTextOut(205, 353+(22*1), "3DFX Glide", opValueFontC);
 						break;
 					case 2: //d3d
 							STTextOut(205, 353+(22*1), "Direct3D", opValueFontC);
 						break;
-					case 3: //d3d software
-							STTextOut(205, 353+(22*1), "Direct3D Software", opValueFontC);
-						break;
+					//case 3: //d3d software
+					//		STTextOut(205, 353+(22*1), "Direct3D Software", opValueFontC);
+					//	break;
 				}
 				wsprintf(logt,"Resolution:");
 				STTextOut(190-GetTextW(hdcCMain,logt), 353+(22*2), logt, opNameFontC);

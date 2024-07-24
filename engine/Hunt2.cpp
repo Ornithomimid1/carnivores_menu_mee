@@ -1139,9 +1139,9 @@ void ProcessButton3() {
 					case 2:
 						strcpy(Renderer,"v_d3d");
 						break;
-					case 3:
-						strcpy(Renderer,"v_d3dsoft");
-						break;
+					//case 3:
+					//	strcpy(Renderer,"v_d3dsoft");
+					//	break;
 				}
 				wsprintf(logt,"%s.ren prj=huntdat\\areas\\trophy reg=%d dtm=1",Renderer,TrophyRoom.RegNumber);
 				LaunchCarnProcess();
@@ -1201,9 +1201,9 @@ void ProcessButton8() {
 					case 2:
 						strcpy(Renderer,"v_d3d");
 						break;
-					case 3:
-						strcpy(Renderer,"v_d3dsoft");
-						break;
+					//case 3:
+					//	strcpy(Renderer,"v_d3dsoft");
+					//	break;
 				}
 				//-> Get Day Time...
 					//SelectedDay = SelectedDay; //<- Here to get your attention
@@ -1466,7 +1466,7 @@ int ProcessShoot()
 						//-> Video
 						AddVoicev  (MENUGO.length,MENUGO.lpData,255);
 						OptRender++;
-						if (OptRender > 3)
+						if (OptRender > 2)
 							OptRender = 0;
 					}
 					if (MouseAtY > 398 && MouseAtY < 417 && MouseAtX > 61 && MouseAtX < 275) {

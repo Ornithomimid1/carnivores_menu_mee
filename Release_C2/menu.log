@@ -32,12 +32,15 @@ Direct Sound activated.
 == Loading resources ==
 Loading common resources: Done.
 Reading  and .rsc/n Done.
+Audio restored.
 Loading area: Done.
 Entering messages loop.
 Entered game
 ReInitGame();
 SetCooperativeLevel: Ok
 Trophy Loaded.
+Failed to launch
+Trophy Saved.
 Trophy Saved.
 Audio restored.
 Game normal shutdown.
