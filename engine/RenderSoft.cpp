@@ -311,15 +311,47 @@ void ShowControlElements()
 				else
 					STTextOut(617, 71+(22*11), "<...>", opValueFontC);
 
-
-				STTextOut(600-GetTextW(hdcCMain,"Reverse Mouse"), 71+(22*12), "Reverse Mouse", opNameFontC);
-				if (REVERSEMS)
-					STTextOut(615, 71+(22*12), "On", opValueFontC);
+				STTextOut(600 - GetTextW(hdcCMain, "Reload"), 71 + (22 * 12), "Reload", opNameFontC);
+				if (PtrSelectedKey != &KeyMap.fkUp || !AKeySelected)
+					STTextOut(617, 71 + (22 * 12), KeysName[KeyMap.fkUp], opValueFontC);
 				else
-					STTextOut(615, 71+(22*12), "Off", opValueFontC);
-				STTextOut(600-GetTextW(hdcCMain,"Mouse Sensitivity"), 71+(22*13), "Mouse Sensitivity", opNameFontC);
+					STTextOut(617, 71 + (22 * 12), "<...>", opValueFontC);
+
+				STTextOut(600 - GetTextW(hdcCMain, "Resupply"), 71 + (22 * 13), "Resupply", opNameFontC);
+				if (PtrSelectedKey != &KeyMap.fkDown || !AKeySelected)
+					STTextOut(617, 71 + (22 * 13), KeysName[KeyMap.fkDown], opValueFontC);
+				else
+					STTextOut(617, 71 + (22 * 13), "<...>", opValueFontC);
+
+				STTextOut(600 - GetTextW(hdcCMain, "Hold Breath"), 71 + (22 * 14), "Hold Breath", opNameFontC);
+				if (PtrSelectedKey != &KeyMap.fkLeft || !AKeySelected)
+					STTextOut(617, 71 + (22 * 14), KeysName[KeyMap.fkLeft], opValueFontC);
+				else
+					STTextOut(617, 71 + (22 * 14), "<...>", opValueFontC);
+
+				STTextOut(600 - GetTextW(hdcCMain, "Firing Mode"), 71 + (22 * 15), "Firing Mode", opNameFontC);
+				if (PtrSelectedKey != &KeyMap.fkRight || !AKeySelected)
+					STTextOut(617, 71 + (22 * 15), KeysName[KeyMap.fkRight], opValueFontC);
+				else
+					STTextOut(617, 71 + (22 * 15), "<...>", opValueFontC);
+
+				STTextOut(600 - GetTextW(hdcCMain, "Rack"), 71 + (22 * 16), "Rack", opNameFontC);
+				if (PtrSelectedKey != &KeyMap.fkStrafe || !AKeySelected)
+					STTextOut(617, 71 + (22 * 16), KeysName[KeyMap.fkStrafe], opValueFontC);
+				else
+					STTextOut(617, 71 + (22 * 16), "<...>", opValueFontC);
+
+
+
+				STTextOut(600-GetTextW(hdcCMain,"Reverse Mouse"), 71+(22*17), "Reverse Mouse", opNameFontC);
+				if (REVERSEMS)
+					STTextOut(615, 71+(22*17), "On", opValueFontC);
+				else
+					STTextOut(615, 71+(22*17), "Off", opValueFontC);
+				STTextOut(600-GetTextW(hdcCMain,"Mouse Sensitivity"), 71+(22*18), "Mouse Sensitivity", opNameFontC);
 				//-> WOW that was a pain....
 				//-> Add my keys....
+				/*
 				STTextOut(600-GetTextW(hdcCMain,"Sprint"), 71+(22*15), "Sprint", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkSprint || !AKeySelected)
 					STTextOut(617, 71+(22*15), KeysName[KeyMap.fkSprint], opValueFontC);
@@ -332,11 +364,13 @@ void ShowControlElements()
 				else
 					STTextOut(617, 71+(22*16), "<...>", opValueFontC);
 
+				
 				STTextOut(600-GetTextW(hdcCMain,"Call Supplies"), 71+(22*17), "Call Supplies", opNameFontC);
 				if (PtrSelectedKey != &KeyMap.fkSupply || !AKeySelected)
 					STTextOut(617, 71+(22*17), KeysName[KeyMap.fkSupply], opValueFontC);
 				else
 					STTextOut(617, 71+(22*17), "<...>", opValueFontC);
+					*/
 			  break;
 		  }
 	  case MENU_PREHUNT:

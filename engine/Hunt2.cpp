@@ -787,7 +787,7 @@ LONG APIENTRY MainWndProc( HWND hWnd, UINT message, UINT wParam, LONG lParam)
 		if ((int)wParam == KeyMap.fkBinoc) ToggleBinocular();
 		if ((int)wParam == KeyMap.fkCCall) ChangeCall();
 
-		if ((int)wParam == KeyMap.fkSupply) CallSupply();
+		//if ((int)wParam == KeyMap.fkSupply) CallSupply();
 
 		if ((int)wParam == KeyMap.fkRun  ) ToggleRunMode();
 		if ((int)wParam == KeyMap.fkCrouch) ToggleCrouchMode();
@@ -1337,7 +1337,7 @@ int ProcessShoot()
 						Gui_SetSliderValue("slider_bright",newvalue);
 						OptBrightness = newvalue;
 					}
-					if (MouseAtX > 618 && MouseAtX < 618+123 && MouseAtY < 361+11 && MouseAtY > 361) {
+					if (MouseAtX > 618 && MouseAtX < 618+123 && MouseAtY < 71 + 21 + (22 * 18) && MouseAtY > 71 + (22 * 18)) {
 						//-> User clicked slider_mouse slide...
 						//SliderXStart = 205
 						newvalue = (MouseAtX - 618)*2;
@@ -1356,6 +1356,7 @@ int ProcessShoot()
 							OptSys = 0;
 					}
 					   //-> Keys
+
 					if (MouseAtY > 72 && MouseAtY < 91 && MouseAtX > 518 && MouseAtX < 668) {
 						//Forward key...
 						AKeySelected = true;
@@ -1428,25 +1429,42 @@ int ProcessShoot()
 						PtrSelectedKey = &KeyMap.fkBinoc; //PrtSelectedKey = Addressof keymap.key
 						AddVoicev(TypeSound[0].length,TypeSound[0].lpData, 256);
 					}
-					/*if (MouseAtY > 71+(22*15) && MouseAtY < 71+21+(22*15) && MouseAtX > 518 && MouseAtX < 668) {
-						//Sprint
+
+
+
+					if (MouseAtY > 71+(22*12) && MouseAtY < 71+21+(22*12) && MouseAtX > 518 && MouseAtX < 668) {
+						//Reload
 						AKeySelected = true;
-						PtrSelectedKey = &KeyMap.fkSprint; //PrtSelectedKey = Addressof keymap.key
+						PtrSelectedKey = &KeyMap.fkUp; //PrtSelectedKey = Addressof keymap.key
 						AddVoicev(TypeSound[0].length,TypeSound[0].lpData, 256);
 					}
-					if (MouseAtY > 71+(22*16) && MouseAtY < 71+21+(22*16) && MouseAtX > 518 && MouseAtX < 668) {
-						//Aim
+					if (MouseAtY > 71+(22*13) && MouseAtY < 71+21+(22*13) && MouseAtX > 518 && MouseAtX < 668) {
+						//Resupply
 						AKeySelected = true;
-						PtrSelectedKey = &KeyMap.fkAim; //PrtSelectedKey = Addressof keymap.key
+						PtrSelectedKey = &KeyMap.fkDown; //PrtSelectedKey = Addressof keymap.key
 						AddVoicev(TypeSound[0].length,TypeSound[0].lpData, 256);
 					}
-					if (MouseAtY > 71+(22*17) && MouseAtY < 71+21+(22*17) && MouseAtX > 518 && MouseAtX < 668) {
-						//Call Supplies
+					if (MouseAtY > 71+(22*14) && MouseAtY < 71+21+(22*14) && MouseAtX > 518 && MouseAtX < 668) {
+						//Hold Breath
 						AKeySelected = true;
-						PtrSelectedKey = &KeyMap.fkSupply; //PrtSelectedKey = Addressof keymap.key
+						PtrSelectedKey = &KeyMap.fkLeft; //PrtSelectedKey = Addressof keymap.key
 						AddVoicev(TypeSound[0].length,TypeSound[0].lpData, 256);
-					}*/
-					if (MouseAtY > 335 && MouseAtY < 353 && MouseAtX > 518 && MouseAtX < 668) {
+					}
+					if (MouseAtY > 71 + (22 * 15) && MouseAtY < 71 + 21 + (22 * 15) && MouseAtX > 518 && MouseAtX < 668) {
+						//Firing Mode
+						AKeySelected = true;
+						PtrSelectedKey = &KeyMap.fkRight; //PrtSelectedKey = Addressof keymap.key
+						AddVoicev(TypeSound[0].length, TypeSound[0].lpData, 256);
+					}
+					if (MouseAtY > 71 + (22 * 16) && MouseAtY < 71 + 21 + (22 * 16) && MouseAtX > 518 && MouseAtX < 668) {
+						//Rack
+						AKeySelected = true;
+						PtrSelectedKey = &KeyMap.fkStrafe; //PrtSelectedKey = Addressof keymap.key
+						AddVoicev(TypeSound[0].length, TypeSound[0].lpData, 256);
+					}
+
+
+					if (MouseAtY > 71 + (22 * 17) && MouseAtY < 71 + 21 + (22 * 17) && MouseAtX > 518 && MouseAtX < 668) {
 						//reverse mouse
 						AddVoicev  (MENUGO.length,MENUGO.lpData,255);
 						if (REVERSEMS == 0)

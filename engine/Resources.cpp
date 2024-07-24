@@ -1258,7 +1258,7 @@ void InitGUIitems() {
 	Gui_AddSliderButton("slider_bright","HUNTDAT\\MENU\\SL_BUT.TGA");
 	//========= Mouse Sense ==========//
 	startpos.x = 618;
-	startpos.y = 361;
+	startpos.y = 471;
 
 	maxValue = 255;
 	Gui_AddSlider("slider_mouse","HUNTDAT\\MENU\\SL_BAR.TGA",startpos,float(OptMsSens),0, maxValue, NULL,NULL,true,MENU_OPTIONS);

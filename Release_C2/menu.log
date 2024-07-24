@@ -18,17 +18,33 @@ Reading Map Description File: huntdat\\menu\\txt\\area5.txt
 Trophy Loaded.
 Init Engine: Ok.
 
-==Init Direct Sound==
-Software mixer version 1.2
-Back Sound Buffer created.
-DirectSoundCreate: Ok
-Attempting to set EXCLUSIVE CooperativeLevel:
-Set Cooperative  : Ok
-CreateSoundBuffer: Ok (Primary)
-SetFormat        : Ok
-CreateSoundBuffer: Ok (Secondary)
-Play             : Ok
-Direct Sound activated.
+DirectSound3D(native) audio driver (final)
+DirectSound3D(native) audio driver (final)No Device Enumerating implemented.. 
+Using native DirectSound 3D (Software emulation mode)
+DSCAPS:
+ dwFreeHw3DAllBuffers 0 
+ dwFreeHw3DStaticBuffers 0 
+ dwFreeHw3DStreamingBuffers 0 
+ dwFreeHwMemBytes 0 
+ dwTotalHwMemBytes 0 
+ dwFreeHwMixingAllBuffers 0 
+ dwFreeHwMixingStaticBuffers 0 
+ dwFreeHwMixingStreamingBuffers 0 
+ dwMaxContigFreeHwMemBytes 0 
+ dwMinSecondarySampleRate 100 
+ dwMaxSecondarySampleRate 200000 
+ dwMaxHw3DAllBuffers 0 
+ dwMaxHw3DStaticBuffers 0 
+ dwMaxHw3DStreamingBuffers 0 
+ dwMaxHwMixingAllBuffers 1 
+ dwMaxHwMixingStaticBuffers 1 
+ dwMaxHwMixingStreamingBuffers 1 
+CreatePrimaryBuffer Ok
+Primary SetFormat() Ok
+Create audio thread #1..ok
+Create Listener3D()
+InitAudioSystem ok
+
 == Loading resources ==
 Loading common resources: Done.
 Reading  and .rsc/n Done.
@@ -37,9 +53,13 @@ Entering messages loop.
 Entered game
 ReInitGame();
 SetCooperativeLevel: Ok
-Audio restored.
 Trophy Loaded.
 Trophy Saved.
 Trophy Saved.
-Audio restored.
+  AudioStop ()
+ Releasing Listener3D
+ Releasing PrimaryBuffer
+ Releasing DirectSoundObject
+ Terminate thread 1
+ AudioShutdown()
 Game normal shutdown.
