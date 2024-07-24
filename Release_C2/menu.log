@@ -1,4 +1,4 @@
-Carnivores CCE Menu Based on Build ADPv2.14.111ALPHA. Jul 23 2024.
+Carnivores CCE Menu Based on Build ADPv2.14.111ALPHA. Jul 24 2024.
 Creating main window...Ok.
 
 ==Init Direct Draw==
@@ -32,14 +32,13 @@ Direct Sound activated.
 == Loading resources ==
 Loading common resources: Done.
 Reading  and .rsc/n Done.
-Audio restored.
 Loading area: Done.
 Entering messages loop.
 Entered game
 ReInitGame();
 SetCooperativeLevel: Ok
+Audio restored.
 Trophy Loaded.
-Failed to launch
 Trophy Saved.
 Trophy Saved.
 Audio restored.

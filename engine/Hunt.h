@@ -999,14 +999,15 @@ _EXTORNOT BOOL TypingMode; //Game is in type mode
 _EXTORNOT int ENGINE_FPS,MAX_FPS;
 
 
-_EXTORNOT   struct _t {
+typedef struct _TKeyMap {
 #ifdef _iceage // alacn
 		int fkForward, fkBackward, fkUp, fkDown, fkLeft, fkRight, fkFire, fkShow, fkSLeft, fkSRight, fkStrafe, fkJump, fkRun, fkCrouch, fkCall, fkCCall, fkBinoc, fkSupply;
 #else
 		int fkForward, fkBackward, fkUp, fkDown, fkLeft, fkRight, fkFire, fkShow, fkSLeft, fkSRight, fkStrafe, fkJump, fkRun, fkCrouch, fkCall, fkCCall, fkBinoc, fkSupply, fkSprint, fkAim;
 #endif
-	} KeyMap;
+	} TKeyMap;
 
+_EXTORNOT TKeyMap KeyMap;
 
 #define kfForward     0x00000001
 #define kfBackward    0x00000002
