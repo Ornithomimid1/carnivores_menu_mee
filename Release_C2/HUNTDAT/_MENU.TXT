@@ -1,4 +1,10 @@
 
+common {
+ survivalArea = 5
+ survivalWeapon = 2
+ survivalDTM = 0
+}
+
 weapons {
 {
  name  = 'Pistol'

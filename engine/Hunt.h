@@ -583,6 +583,11 @@ void RenderModelClipPhongMap(TModel*, float, float, float, float, float);
 _EXTORNOT int DinoStatType; // 1 dino  2 weap
 _EXTORNOT int DinoStatIndex;
 
+_EXTORNOT int survivalArea;
+_EXTORNOT int survivalWeapon;
+_EXTORNOT int survivalDTM;
+
+
 _EXTORNOT int regOffR;
 _EXTORNOT int regOffG;
 _EXTORNOT int regOffB;

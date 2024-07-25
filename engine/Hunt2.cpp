@@ -1067,15 +1067,7 @@ void ProcessButton6() {
 	}
 }
 
-void ProcessButton7() {
-	//==== Button 7 was pressed ====//
-	switch (CURRENT_MENU) {
-		case MENU_PREHUNT:
-			//-> Back was pressed
-			CURRENT_MENU = MENU_MAIN;
-			break;
-	}
-}
+
 
 void LaunchCarnProcess() {
 	//=====================//
@@ -1116,6 +1108,48 @@ void LaunchCarnProcess() {
 
 }
 
+
+void ProcessButton7() {
+	//==== Button 7 was pressed ====//
+	switch (CURRENT_MENU) {
+	case MENU_PREHUNT:
+	{
+		//-> Back was pressed
+		CURRENT_MENU = MENU_MAIN;
+		break;
+	}
+	case MENU_MAIN:
+	{
+		//survival
+		char Renderer[128];
+		//-> Get Renderer...
+		switch (OptRender) {
+		case 0:
+			strcpy(Renderer, "v_soft");
+			break;
+		case 1:
+			strcpy(Renderer, "v_3dfx");
+			break;
+		case 2:
+			strcpy(Renderer, "v_d3d");
+			break;
+			//case 3:
+			//	strcpy(Renderer,"v_d3dsoft");
+			//	break;
+		}
+		wsprintf(logt, "%s.ren prj=huntdat\\areas\\area%d reg=%d dtm=%d wep=%d din=0 -survival",
+			Renderer,
+			survivalArea,
+			TrophyRoom.RegNumber,
+			survivalDTM,
+			1 << (survivalWeapon - 1));
+			
+		//MessageBox(hwndMain, logt, "test", MB_OK | MB_ICONHAND); // alacn
+		LaunchCarnProcess();
+		break;
+	}
+	}
+}
 
 void ProcessButton3() {
 	//==== Button 3 was clicked ====//
@@ -1241,6 +1275,10 @@ void ProcessButton8() {
 				PrintLog(logt);
 				LaunchCarnProcess();
 			break;
+			}
+		case MENU_MAIN:
+			{
+				//MULTIPLAYER
 			}
 	}
 }

@@ -1821,6 +1821,29 @@ void SaveScreenShot()
 
 
 //===============================================================================================
+
+void ReadCommon(FILE *stream)
+{
+	char line[256], *value;
+	while (fgets(line, 255, stream))
+	{
+		if (strstr(line, "}")) {
+			break;
+		}
+
+		value = strstr(line, "=");
+		if (!value)
+			DoHalt("Script loading error");
+		value++;
+
+		if (strstr(line, "survivalArea")) survivalArea = atoi(value);
+		if (strstr(line, "survivalWeapon")) survivalWeapon = atoi(value);
+		if (strstr(line, "survivalDTM")) survivalDTM = atoi(value);
+
+	}
+}
+
+
 void ReadWeapons(FILE *stream)
 {
 	TotalW = 0;	
@@ -2202,6 +2225,7 @@ void LoadResourcesScript()
 
 	while (fgets( line, 255, stream)) {
        if (line[0] == '.') break;
+	   if (strstr(line, "common")) ReadCommon(stream);
 	   if (strstr(line, "weapons") ) ReadWeapons(stream);
 	   if (strstr(line, "characters") ) ReadCharacters(stream);
 	   if (strstr(line, "fonts")) ReadFonts(stream);

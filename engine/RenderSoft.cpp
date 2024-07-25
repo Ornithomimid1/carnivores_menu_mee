@@ -630,7 +630,9 @@ void ShowControlElements()
 			  wsprintf(logt, "%d", TrophyRoom.Total.success);
 			  STTextOut(719, 271, logt, mainStatFontC);
 			  
+			  if (TrophyRoom.Total.smade)
 			  wsprintf(logt, "%d%s", (int)(((float)TrophyRoom.Total.success/(float)TrophyRoom.Total.smade) * 100), "%");
+			  else wsprintf(logt, "0%s","%");
 			  STTextOut(719, 291, logt, mainStatFontC);
 			  
 
