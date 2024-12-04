@@ -478,10 +478,14 @@ void DrawPostObjects()
 				  ClickedSlot = int( (ms.y - 382)/16); //-> SlotID = (ClickedY - MinimimY)/size_per_slot. See fonts in game.cpp for font sizes. This is using small
 				  FieldOffset = Gui_GetSliderValue("slider_dinos")/2; //<- Make it less sensitive
 				  if (strlen(DinoInfo[(ClickedSlot+FieldOffset+7)].Name) >0 ) {
-					DrawPicture(38,73,DinoInfo[(ClickedSlot+FieldOffset+7)].MenuPic);
-					strcpy(ActiveInfoText,DinoInfo[(ClickedSlot+FieldOffset+7)].MenuTxt);
-					DinoStatType = 1;
-					DinoStatIndex = (ClickedSlot + FieldOffset + 7);
+					  if (DinoInfo[(ClickedSlot + FieldOffset + 7)].Hide && TrophyRoom.Score < DinoInfo[(ClickedSlot + FieldOffset + 7)].Price) {
+						  DrawPicture(38, 73, DinoInfo[(ClickedSlot + FieldOffset + 7)].MenuPicHidden);
+					  } else {
+						  DrawPicture(38, 73, DinoInfo[(ClickedSlot + FieldOffset + 7)].MenuPic);
+						  strcpy(ActiveInfoText, DinoInfo[(ClickedSlot + FieldOffset + 7)].MenuTxt);
+						  DinoStatType = 1;
+						  DinoStatIndex = (ClickedSlot + FieldOffset + 7);
+					  }
 				  }
 
 			  }

@@ -426,9 +426,13 @@ void ShowControlElements()
 							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntAvailFontC);
 					  } else {
 						  //-> Gray it out
-  							STTextOut(x, y, DinoInfo[i].Name, huntOffFontC);
-							wsprintf(logt,"%d",DinoInfo[i].Price);
-							STTextOut(x+155-GetTextW(hdcCMain,logt), y, logt, huntOffFontC);
+						  if (DinoInfo[i].Hide && TrophyRoom.Score < DinoInfo[i].Price) {
+							  STTextOut(x, y, "???", huntOffFontC);
+						  } else {
+							  STTextOut(x, y, DinoInfo[i].Name, huntOffFontC);
+							  wsprintf(logt, "%d", DinoInfo[i].Price);
+							  STTextOut(x + 155 - GetTextW(hdcCMain, logt), y, logt, huntOffFontC);
+						  }
 					  }
 				  } else {
 					  //Is selected

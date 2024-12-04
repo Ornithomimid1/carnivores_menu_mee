@@ -416,6 +416,7 @@ typedef struct _TTrophyRoom {
 
 typedef struct _TDinoInfo {
 	TPicture MenuPic;
+	TPicture MenuPicHidden;
 	char MenuTxt[512];
 	char Name[48], FName[48], PName[48];	
 	int Health0, AI;
@@ -426,6 +427,7 @@ typedef struct _TDinoInfo {
 	int   Scale0, ScaleA, BaseScore;
 	TPicture CallIcon;
 	int Price; //For menu
+	bool Hide;
 	bool Selected; //For menu
 	int Code; //For menu
 } TDinoInfo;

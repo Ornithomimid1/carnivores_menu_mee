@@ -2116,6 +2116,11 @@ void ReadCharacters(FILE *stream)
 				if (strstr(line, "scaleA"   )) DinoInfo[TotalC].ScaleA    = atoi(value);
 				if (strstr(line, "price"   )) DinoInfo[TotalC].Price    = atoi(value);
 				if (strstr(line, "danger"   )) DinoInfo[TotalC].DangerCall= TRUE;
+				if (strstr(line, "hide")) {
+					DinoInfo[TotalC].Hide = TRUE;
+					wsprintf(logt, "HUNTDAT\\MENU\\PICS\\Dino%dno.TGA", TotalC - 6);
+					LoadPictureTGA(DinoInfo[TotalC].MenuPicHidden, logt);
+				}
 
 				if (strstr(line, "name")) {					
 					value = strstr(line, "'"); if (!value) DoHalt("Script loading error");
