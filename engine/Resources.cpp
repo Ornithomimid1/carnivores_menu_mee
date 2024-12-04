@@ -1840,6 +1840,17 @@ void ReadCommon(FILE *stream)
 		if (strstr(line, "survivalWeapon")) survivalWeapon = atoi(value);
 		if (strstr(line, "survivalDTM")) survivalDTM = atoi(value);
 
+		if (strstr(line, "radar")) radarDefault = true;
+		if (strstr(line, "camo")) camoDefault = true;
+		if (strstr(line, "scent")) scentDefault = true;
+		if (strstr(line, "double")) doubleAmmoDefault = true;
+		if (strstr(line, "tranq")) tranqDefault = true;
+		if (strstr(line, "supply")) supplyDefault = true;
+		if (strstr(line, "sonar")) sonarDefault = true;
+		if (strstr(line, "dog")) dogDefault = true;
+		if (strstr(line, "bino")) binoDefault = true;
+		if (strstr(line, "binText")) binTextDefault = true;
+
 	}
 }
 
@@ -1992,6 +2003,62 @@ void ReadFonts(FILE *stream)
 	}
 }
 
+void ReadAccessories(FILE *stream)
+{
+	TotalA = 0;
+	char line[256], *value;
+	while (fgets(line, 255, stream))
+	{
+		if (strstr(line, "}")) break;
+		if (strstr(line, "{")) {
+			//-> Load Image...
+			wsprintf(logt, "HUNTDAT\\MENU\\PICS\\Equip%d.TGA", TotalA + 1);
+			LoadPictureTGA(AcessInfo[TotalA].MenuPic, logt);
+			//-> Load Txt
+			wsprintf(logt, "HUNTDAT\\MENU\\TXT\\Equip%d.NFO", TotalA + 1);
+			hfile = CreateFile(logt, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+			if (hfile != INVALID_HANDLE_VALUE) {
+				ReadFile(hfile, AcessInfo[TotalA].MenuTxt, 300, &l, NULL);
+				CloseHandle(hfile);
+			}
+			else {
+				PrintLog("Failed to load equip txt from ");
+				PrintLog(logt);
+				PrintLog("\n");
+			}
+
+			//-> Read file
+			while (fgets(line, 255, stream)) {
+				if (strstr(line, "}")) { TotalA++; break; }
+				value = strstr(line, "=");
+				if (!value) DoHalt("Script loading error");
+				value++;
+
+				if (strstr(line, "price")) AcessInfo[TotalA].price = atoi(value);
+				if (strstr(line, "scoreMod")) AcessInfo[TotalA].scoreMod = (float)atof(value);
+
+				if (strstr(line, "radar")) AcessInfo[TotalA].radar = true;
+				if (strstr(line, "camo")) AcessInfo[TotalA].camo = true;
+				if (strstr(line, "scent")) AcessInfo[TotalA].scent = true;
+				if (strstr(line, "double")) AcessInfo[TotalA].doubleAmmo = true;
+				if (strstr(line, "tranq")) AcessInfo[TotalA].tranq = true;
+				if (strstr(line, "supply")) AcessInfo[TotalA].supply = true;
+				if (strstr(line, "sonar")) AcessInfo[TotalA].sonar = true;
+				if (strstr(line, "dog")) AcessInfo[TotalA].dog = true;
+				if (strstr(line, "bino")) AcessInfo[TotalA].bino = true;
+				if (strstr(line, "binText")) AcessInfo[TotalA].binText = true;
+
+				if (strstr(line, "name")) {
+					value = strstr(line, "'"); if (!value) DoHalt("Script loading error");
+					value[strlen(value) - 2] = 0;
+					strcpy(AcessInfo[TotalA].name, &value[1]);
+				}
+
+			}
+		}
+
+	}
+}
 
 void ReadCharacters(FILE *stream)
 {
@@ -2229,6 +2296,7 @@ void LoadResourcesScript()
 	   if (strstr(line, "weapons") ) ReadWeapons(stream);
 	   if (strstr(line, "characters") ) ReadCharacters(stream);
 	   if (strstr(line, "fonts")) ReadFonts(stream);
+	   if (strstr(line, "access")) ReadAccessories(stream);
 	}
 	fclose (stream);
 
@@ -2289,6 +2357,8 @@ void LoadResourcesScript()
 	LoadMapList(); //Build list of maps
 
 	//-> Get Accessories....
+	/*  
+
 	TotalA = 0;
 	strcpy(AcessInfo[0].name,"Camouflage");
 	strcpy(AcessInfo[0].CommandLine,"-camo");
@@ -2331,6 +2401,7 @@ void LoadResourcesScript()
 	GetAcessDesc("huntdat\\menu\\txt\\tranq.NFO",TotalA);
 	LoadPictureTGA(AcessInfo[TotalA].MenuPic, "huntdat\\menu\\pics\\EQUIP6.tga");
 	TotalA++;
+	*/
 
 	//-> Get Users....
 	LoadUserList(); //Build list of users

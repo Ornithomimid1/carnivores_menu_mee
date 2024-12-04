@@ -430,16 +430,24 @@ typedef struct _TDinoInfo {
 	int Code; //For menu
 } TDinoInfo;
 
+_EXTORNOT bool radarDefault, camoDefault, scentDefault, doubleAmmoDefault,
+			tranqDefault, supplyDefault, sonarDefault, dogDefault,
+			binoDefault, binTextDefault;
+
 typedef struct _TAccessInfo {
 	TPicture MenuPic;
 	char MenuTxt[512];
 	char name[48];
-	char CommandLine[128];
+	//char CommandLine[128];
 	bool Selected;
 	int price;
+	float scoreMod;
+	bool radar, camo, scent, doubleAmmo,
+		tranq, supply, sonar, dog,
+		bino, binText;
 } TAcessInfo;
 _EXTORNOT TAcessInfo AcessInfo[512];
-_EXTORNOT int TotalA,SpentCredits,SelectedDay;
+_EXTORNOT int SpentCredits,SelectedDay;
 _EXTORNOT int * PtrSelectedKey; //Pointer to seleted key
 _EXTORNOT bool AKeySelected;
 
@@ -461,6 +469,8 @@ typedef struct _TWeapInfo {
 	bool Selected; //For menu
 	int Code; //For menu
 } TWeapInfo;
+
+
 
 
 typedef struct _TFogEntity {
@@ -790,7 +800,7 @@ void CloseLog();
 _EXTORNOT   float BackViewR;
 _EXTORNOT   int   BackViewRR;
 _EXTORNOT   int   UnderWaterT;
-_EXTORNOT   int   TotalC, TotalW;
+_EXTORNOT   int   TotalC, TotalW, TotalA;
 
 
 //========== common ==================//
@@ -878,8 +888,8 @@ _EXTORNOT TModel *SunModel;
 _EXTORNOT TCharacterInfo WCircleModel;
 _EXTORNOT TModel *CompasModel;
 _EXTORNOT TModel *Binocular;
-_EXTORNOT TDinoInfo DinoInfo[32];
-_EXTORNOT TWeapInfo WeapInfo[8];
+_EXTORNOT TDinoInfo DinoInfo[255];
+_EXTORNOT TWeapInfo WeapInfo[255];
 _EXTORNOT TCharacterInfo ShipModel, SShipModel, AmmoModel;
 _EXTORNOT int AI_to_CIndex[32];
 _EXTORNOT int ChCount, WCCount, ElCount, SnCount,

@@ -1254,24 +1254,112 @@ void ProcessButton8() {
 						}
 					}
 			    //-> Get Accessories.... and Get Observer Mode...
+
+					bool radarTemp, camoTemp, scentTemp, doubleAmmoTemp,
+						tranqTemp, supplyTemp, sonarTemp, dogTemp,
+						binoTemp, binTextTemp;
+					radarTemp = radarDefault;
+					camoTemp = camoDefault;
+					scentTemp = scentDefault;
+					doubleAmmoTemp = doubleAmmoDefault;
+					tranqTemp = tranqDefault;
+					supplyTemp = supplyDefault;
+					sonarTemp = sonarDefault;
+					dogTemp = dogDefault;
+					binoTemp = binoDefault;
+					binTextTemp = binTextDefault;
+
+					float scoreMultiplier = 1;
+
 					for (int i = 0; i < TotalA; i++) {
 						if (AcessInfo[i].Selected) {
-							if (int(strlen(Acces)) > 3)
-								wsprintf(Acces,"%s %s",Acces,AcessInfo[i].CommandLine);
-							else
-								wsprintf(Acces,"%s",AcessInfo[i].CommandLine);
+							scoreMultiplier *= AcessInfo[i].scoreMod;
+							if (AcessInfo[i].radar) radarTemp = TRUE;
+							if (AcessInfo[i].camo) camoTemp = TRUE;
+							if (AcessInfo[i].scent) scentTemp = TRUE;
+							if (AcessInfo[i].doubleAmmo) doubleAmmoTemp = TRUE;
+							if (AcessInfo[i].tranq) tranqTemp = TRUE;
+							if (AcessInfo[i].supply) supplyTemp = TRUE;
+							if (AcessInfo[i].sonar) sonarTemp = TRUE;
+							if (AcessInfo[i].dog) dogTemp = TRUE;
+							if (AcessInfo[i].bino) binoTemp = TRUE;
+							if (AcessInfo[i].binText) binTextTemp = TRUE;
 						}
 					}
+
+					int scoreMultiplierI = scoreMultiplier * 10000;
+
+					if (radarTemp) {
+						if (int(strlen(Acces)) > 3)
+							wsprintf(Acces, "%s %s", Acces, "-radar");
+						else
+							strcpy(Acces, "-radar");
+					}
+					if (camoTemp) {
+						if (int(strlen(Acces)) > 3)
+							wsprintf(Acces, "%s %s", Acces, "-camo");
+						else
+							strcpy(Acces, "-camo");
+					}
+					if (scentTemp) {
+						if (int(strlen(Acces)) > 3)
+							wsprintf(Acces, "%s %s", Acces, "-scent");
+						else
+							strcpy(Acces, "-scent");
+					}
+					if (doubleAmmoTemp) {
+						if (int(strlen(Acces)) > 3)
+							wsprintf(Acces, "%s %s", Acces, "-double");
+						else
+							strcpy(Acces,  "-double");
+					}
+					if (tranqTemp) {
+						if (int(strlen(Acces)) > 3)
+							wsprintf(Acces, "%s %s", Acces, "-tranq");
+						else
+							strcpy(Acces, "-tranq");
+					}
+					if (supplyTemp) {
+						if (int(strlen(Acces)) > 3)
+							wsprintf(Acces, "%s %s", Acces, "-supply");
+						else
+							strcpy(Acces, "-supply");
+					}
+					if (sonarTemp) {
+						if (int(strlen(Acces)) > 3)
+							wsprintf(Acces, "%s %s", Acces, "-sonar");
+						else
+							strcpy(Acces, "-sona ");
+					}
+					if (dogTemp) {
+						if (int(strlen(Acces)) > 3)
+							wsprintf(Acces, "%s %s", Acces, "-huntdog");
+						else
+							strcpy(Acces, "-huntdog");
+					}
+					if (binoTemp) {
+						if (int(strlen(Acces)) > 3)
+							wsprintf(Acces, "%s %s", Acces, "-binoc");
+						else
+							strcpy(Acces, "-binoc");
+					}
+					if (binTextTemp) {
+						if (int(strlen(Acces)) > 3)
+							wsprintf(Acces, "%s %s", Acces, "-bintext");
+						else
+							strcpy(Acces, "-bintext");
+					}
+
 					if (ObservMode)
 						if (int(strlen(Acces)) > 3)
 							wsprintf(Acces,"%s %s",Acces,"-observ");
 						else
-							wsprintf(Acces,"%s","-observ");
+							strcpy(Acces,"-observ");
 
 			    //-> Verify that it is OK to launch....
 				if (SelectedMap == -1 || SelectedMap >= TotalM || DinoCode == 0 || WeaponCode == 0) return;
 				//-> LAUNCH!!
-				wsprintf(logt,"%s.ren prj=%s reg=%d din=%d wep=%d dtm=%d %s",Renderer,MapFile[SelectedMap].mapfile,TrophyRoom.RegNumber,DinoCode,WeaponCode,SelectedDay,Acces);
+				wsprintf(logt,"%s.ren prj=%s reg=%d din=%d wep=%d dtm=%d scr=%d %s",Renderer,MapFile[SelectedMap].mapfile,TrophyRoom.RegNumber,DinoCode,WeaponCode,SelectedDay,scoreMultiplierI,Acces);
 				PrintLog(logt);
 				LaunchCarnProcess();
 			break;
@@ -1642,7 +1730,7 @@ int ProcessShoot()
 						// -> Play Sound
 						ClickedSlot = int( (ms.y - 382)/16); //-> SlotID = (ClickedY - MinimimY)/size_per_slot. See fonts in game.cpp for font sizes. This is using small
 						//FieldOffset = Gui_GetSliderValue("slider_weapons")/2; //<- Make it less sensitive
-						if ((ClickedSlot) < TotalW) {
+						if ((ClickedSlot) < TotalA) {
 							AcessInfo[(ClickedSlot)].Selected = !AcessInfo[(ClickedSlot)].Selected;
 							//-> Check price...
 							if (AcessInfo[(ClickedSlot)].Selected && TrophyRoom.Score - (SpentCredits+AcessInfo[(ClickedSlot)].price) < 0) {
