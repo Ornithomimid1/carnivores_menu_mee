@@ -434,7 +434,7 @@ typedef struct _TDinoInfo {
 
 _EXTORNOT bool radarDefault, camoDefault, scentDefault, doubleAmmoDefault,
 			tranqDefault, supplyDefault, sonarDefault, dogDefault,
-			binoDefault, binTextDefault;
+			binoDefault, binTextDefault, mapviewDefault, callboxDefault;
 
 typedef struct _TAccessInfo {
 	TPicture MenuPic;
@@ -446,7 +446,7 @@ typedef struct _TAccessInfo {
 	float scoreMod;
 	bool radar, camo, scent, doubleAmmo,
 		tranq, supply, sonar, dog,
-		bino, binText;
+		bino, binText, mapview, callbox;
 } TAcessInfo;
 _EXTORNOT TAcessInfo AcessInfo[512];
 _EXTORNOT int SpentCredits,SelectedDay;

@@ -1850,6 +1850,8 @@ void ReadCommon(FILE *stream)
 		if (strstr(line, "dog")) dogDefault = true;
 		if (strstr(line, "bino")) binoDefault = true;
 		if (strstr(line, "binText")) binTextDefault = true;
+		if (strstr(line, "areaMap")) mapviewDefault = true;
+		if (strstr(line, "callBox")) callboxDefault = true;
 
 	}
 }
@@ -2047,6 +2049,8 @@ void ReadAccessories(FILE *stream)
 				if (strstr(line, "dog")) AcessInfo[TotalA].dog = true;
 				if (strstr(line, "bino")) AcessInfo[TotalA].bino = true;
 				if (strstr(line, "binText")) AcessInfo[TotalA].binText = true;
+				if (strstr(line, "areaMap")) AcessInfo[TotalA].mapview = true;
+				if (strstr(line, "callBox")) AcessInfo[TotalA].callbox = true;
 
 				if (strstr(line, "name")) {
 					value = strstr(line, "'"); if (!value) DoHalt("Script loading error");

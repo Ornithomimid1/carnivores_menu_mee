@@ -1272,6 +1272,8 @@ void ProcessButton8() {
 					dogTemp = dogDefault;
 					binoTemp = binoDefault;
 					binTextTemp = binTextDefault;
+					bool mapviewTemp = mapviewDefault;
+					bool callboxTemp = callboxDefault;
 
 					float scoreMultiplier = 1;
 
@@ -1288,6 +1290,8 @@ void ProcessButton8() {
 							if (AcessInfo[i].dog) dogTemp = TRUE;
 							if (AcessInfo[i].bino) binoTemp = TRUE;
 							if (AcessInfo[i].binText) binTextTemp = TRUE;
+							if (AcessInfo[i].mapview) mapviewTemp = TRUE;
+							if (AcessInfo[i].callbox) callboxTemp = TRUE;
 						}
 					}
 
@@ -1352,6 +1356,18 @@ void ProcessButton8() {
 							wsprintf(Acces, "%s %s", Acces, "-bintext");
 						else
 							strcpy(Acces, "-bintext");
+					}
+					if (mapviewTemp) {
+						if (int(strlen(Acces)) > 3)
+							wsprintf(Acces, "%s %s", Acces, "-map");
+						else
+							strcpy(Acces, "-map");
+					}
+					if (callboxTemp) {
+						if (int(strlen(Acces)) > 3)
+							wsprintf(Acces, "%s %s", Acces, "-callbox");
+						else
+							strcpy(Acces, "-callbox");
 					}
 
 					if (ObservMode)
