@@ -2310,7 +2310,10 @@ void LoadResourcesScript()
 	}
 	fclose (stream);
 
+
+
 	//->DAWN
+	LoadPictureTGA(DawnPic, "HUNTDAT\\MENU\\PICS\\dawn.TGA");
 	wsprintf(logt, "HUNTDAT\\MENU\\TXT\\DAY1.NFO", TotalW + 1);
 	hfile = CreateFile(logt, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (hfile != INVALID_HANDLE_VALUE) {
@@ -2324,6 +2327,7 @@ void LoadResourcesScript()
 	}
 
 	//->DAY
+	LoadPictureTGA(DayPic, "HUNTDAT\\MENU\\PICS\\day.TGA");
 	wsprintf(logt, "HUNTDAT\\MENU\\TXT\\DAY2.NFO", TotalW + 1);
 	hfile = CreateFile(logt, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (hfile != INVALID_HANDLE_VALUE) {
@@ -2337,6 +2341,7 @@ void LoadResourcesScript()
 	}
 
 	//->NIGHT
+	LoadPictureTGA( NightPic, "HUNTDAT\\MENU\\PICS\\night.TGA");
 	wsprintf(logt, "HUNTDAT\\MENU\\TXT\\DAY3.NFO", TotalW + 1);
 	hfile = CreateFile(logt, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (hfile != INVALID_HANDLE_VALUE) {

@@ -446,14 +446,17 @@ void DrawPostObjects()
 			  if (ms.y > 291 && ms.y < 322) {
 				  //-> Hovering Over dawn
 				  if (ms.x > 8 && ms.x < 69) {
+					  DrawPicture(38, 73, DawnPic);
 					  strcpy(ActiveInfoText, DawnTxt);
 				  }
 				  //-> Hovering Over day
 				  if (ms.x > 70 && ms.x < 132) {
+					  DrawPicture(38, 73, DayPic);
 					  strcpy(ActiveInfoText, DayTxt);
 				  }
 				  //-> Hovering Over night
 				  if (ms.x > 133 && ms.x < 195) {
+					  DrawPicture(38, 73, NightPic);
 					  strcpy(ActiveInfoText, NightTxt);
 				  }
 				  //-> Hovering Over observer
