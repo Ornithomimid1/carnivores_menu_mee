@@ -439,6 +439,8 @@ _EXTORNOT bool radarDefault, camoDefault, scentDefault, doubleAmmoDefault,
 _EXTORNOT TPicture DawnPic;
 _EXTORNOT TPicture DayPic;
 _EXTORNOT TPicture NightPic;
+_EXTORNOT TPicture ObservPic;
+
 
 typedef struct _TAccessInfo {
 	TPicture MenuPic;

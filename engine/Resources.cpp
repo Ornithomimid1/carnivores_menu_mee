@@ -2355,6 +2355,7 @@ void LoadResourcesScript()
 	}
 
 	//->OBSERVER MODE
+	LoadPictureTGA(ObservPic, "HUNTDAT\\MENU\\PICS\\observ.TGA");
 	wsprintf(logt, "HUNTDAT\\MENU\\TXT\\OBSERVE.NFO", TotalW + 1);
 	hfile = CreateFile(logt, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (hfile != INVALID_HANDLE_VALUE) {

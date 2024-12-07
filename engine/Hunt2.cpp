@@ -461,6 +461,7 @@ void DrawPostObjects()
 				  }
 				  //-> Hovering Over observer
 				  if (ms.x > 606 && ms.x < 793) {
+					  DrawPicture(38, 73, ObservPic);
 					  strcpy(ActiveInfoText, ObservTxt);
 				  }
 			  }
