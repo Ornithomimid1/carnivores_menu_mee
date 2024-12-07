@@ -811,13 +811,16 @@ void LoadTrophy()
 	if (SelectedPlayer < 0) return;
 	FillMemory(&TrophyRoom, sizeof(TrophyRoom), 0);
 	TrophyRoom.RegNumber = pr;
+	bool resetScore = false;
 	DWORD l;
 	char fname[128];
 	int rn = TrophyRoom.RegNumber;
 	if (pr != 99)
 		wsprintf(fname, "trophy0%d.sav", TrophyRoom.RegNumber);
-	else
+	else {
 		wsprintf(fname, "trophyNEW.sav");
+		resetScore = true;
+	}
 	HANDLE hfile = CreateFile(fname, GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 	if (hfile==INVALID_HANDLE_VALUE) {
 		PrintLog("===> Error loading trophy!\n");
@@ -856,6 +859,7 @@ void LoadTrophy()
 
 	CloseHandle(hfile);	 
 	TrophyRoom.RegNumber = rn;
+	if (resetScore) TrophyRoom.Score = startScore;
 	PrintLog("Trophy Loaded.\n");
 //	TrophyRoom.Score = 299;
 }

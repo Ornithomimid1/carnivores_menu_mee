@@ -598,6 +598,7 @@ _EXTORNOT int DinoStatIndex;
 _EXTORNOT int survivalArea;
 _EXTORNOT int survivalWeapon;
 _EXTORNOT int survivalDTM;
+_EXTORNOT int startScore;
 
 
 _EXTORNOT int regOffR;

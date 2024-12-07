@@ -1839,6 +1839,7 @@ void ReadCommon(FILE *stream)
 		if (strstr(line, "survivalArea")) survivalArea = atoi(value);
 		if (strstr(line, "survivalWeapon")) survivalWeapon = atoi(value);
 		if (strstr(line, "survivalDTM")) survivalDTM = atoi(value);
+		if (strstr(line, "start")) startScore = atoi(value);
 
 		if (strstr(line, "radar")) radarDefault = true;
 		if (strstr(line, "camo")) camoDefault = true;
