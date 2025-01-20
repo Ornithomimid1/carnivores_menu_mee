@@ -1264,7 +1264,7 @@ void ProcessButton8() {
 			    //-> Get Accessories.... and Get Observer Mode...
 
 					bool radarTemp, camoTemp, scentTemp, doubleAmmoTemp,
-						tranqTemp, supplyTemp, sonarTemp, dogTemp,
+						tranqTemp, supplyTemp, sonarTemp, scannerTemp, dogTemp,
 						binoTemp, binTextTemp;
 					radarTemp = radarDefault;
 					camoTemp = camoDefault;
@@ -1273,6 +1273,7 @@ void ProcessButton8() {
 					tranqTemp = tranqDefault;
 					supplyTemp = supplyDefault;
 					sonarTemp = sonarDefault;
+					scannerTemp = scannerDefault;
 					dogTemp = dogDefault;
 					binoTemp = binoDefault;
 					binTextTemp = binTextDefault;
@@ -1291,12 +1292,19 @@ void ProcessButton8() {
 							if (AcessInfo[i].tranq) tranqTemp = TRUE;
 							if (AcessInfo[i].supply) supplyTemp = TRUE;
 							if (AcessInfo[i].sonar) sonarTemp = TRUE;
+							if (AcessInfo[i].scanner) scannerTemp = TRUE;
 							if (AcessInfo[i].dog) dogTemp = TRUE;
 							if (AcessInfo[i].bino) binoTemp = TRUE;
 							if (AcessInfo[i].binText) binTextTemp = TRUE;
 							if (AcessInfo[i].mapview) mapviewTemp = TRUE;
 							if (AcessInfo[i].callbox) callboxTemp = TRUE;
 						}
+					}
+
+					if (scannerTemp) sonarTemp = false;
+					if (radarTemp) {
+						sonarTemp = false;
+						scannerTemp = false;
 					}
 
 					int scoreMultiplierI = scoreMultiplier * 10000;
@@ -1341,7 +1349,13 @@ void ProcessButton8() {
 						if (int(strlen(Acces)) > 3)
 							wsprintf(Acces, "%s %s", Acces, "-sonar");
 						else
-							strcpy(Acces, "-sona ");
+							strcpy(Acces, "-sonar");
+					}
+					if (scannerTemp) {
+						if (int(strlen(Acces)) > 3)
+							wsprintf(Acces, "%s %s", Acces, "-scanner");
+						else
+							strcpy(Acces, "-scanner");
 					}
 					if (dogTemp) {
 						if (int(strlen(Acces)) > 3)

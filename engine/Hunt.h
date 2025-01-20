@@ -433,7 +433,7 @@ typedef struct _TDinoInfo {
 } TDinoInfo;
 
 _EXTORNOT bool radarDefault, camoDefault, scentDefault, doubleAmmoDefault,
-			tranqDefault, supplyDefault, sonarDefault, dogDefault,
+			tranqDefault, supplyDefault, sonarDefault, scannerDefault, dogDefault,
 			binoDefault, binTextDefault, mapviewDefault, callboxDefault;
 
 _EXTORNOT TPicture DawnPic;
@@ -451,7 +451,7 @@ typedef struct _TAccessInfo {
 	int price;
 	float scoreMod;
 	bool radar, camo, scent, doubleAmmo,
-		tranq, supply, sonar, dog,
+		tranq, supply, sonar, scanner, dog,
 		bino, binText, mapview, callbox;
 } TAcessInfo;
 _EXTORNOT TAcessInfo AcessInfo[512];

@@ -1841,13 +1841,14 @@ void ReadCommon(FILE *stream)
 		if (strstr(line, "survivalDTM")) survivalDTM = atoi(value);
 		if (strstr(line, "start")) startScore = atoi(value);
 
-		if (strstr(line, "radar")) radarDefault = true;
+		if (strstr(line, "radar1")) radarDefault = true;
 		if (strstr(line, "camo")) camoDefault = true;
 		if (strstr(line, "scent")) scentDefault = true;
 		if (strstr(line, "double")) doubleAmmoDefault = true;
 		if (strstr(line, "tranq")) tranqDefault = true;
 		if (strstr(line, "supply")) supplyDefault = true;
-		if (strstr(line, "sonar")) sonarDefault = true;
+		if (strstr(line, "radar2")) sonarDefault = true;
+		if (strstr(line, "radar3")) scannerDefault = true;
 		if (strstr(line, "dog")) dogDefault = true;
 		if (strstr(line, "bino")) binoDefault = true;
 		if (strstr(line, "binText")) binTextDefault = true;
@@ -2040,13 +2041,14 @@ void ReadAccessories(FILE *stream)
 				if (strstr(line, "price")) AcessInfo[TotalA].price = atoi(value);
 				if (strstr(line, "scoreMod")) AcessInfo[TotalA].scoreMod = (float)atof(value);
 
-				if (strstr(line, "radar")) AcessInfo[TotalA].radar = true;
+				if (strstr(line, "radar1")) AcessInfo[TotalA].radar = true;
 				if (strstr(line, "camo")) AcessInfo[TotalA].camo = true;
 				if (strstr(line, "scent")) AcessInfo[TotalA].scent = true;
 				if (strstr(line, "double")) AcessInfo[TotalA].doubleAmmo = true;
 				if (strstr(line, "tranq")) AcessInfo[TotalA].tranq = true;
 				if (strstr(line, "supply")) AcessInfo[TotalA].supply = true;
-				if (strstr(line, "sonar")) AcessInfo[TotalA].sonar = true;
+				if (strstr(line, "radar2")) AcessInfo[TotalA].sonar = true;
+				if (strstr(line, "radar3")) AcessInfo[TotalA].scanner = true;
 				if (strstr(line, "dog")) AcessInfo[TotalA].dog = true;
 				if (strstr(line, "bino")) AcessInfo[TotalA].bino = true;
 				if (strstr(line, "binText")) AcessInfo[TotalA].binText = true;
